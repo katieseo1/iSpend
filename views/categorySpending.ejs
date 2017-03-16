@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <link href='/css/categorySpending.css' rel='stylesheet'>
+  <title>iSpend</title>
+</head>
+<body class='container'>
+  <header>
+    <%include header.ejs %>
+    <link href='/css/categorySpending.css' rel='stylesheet' type='text/css'>
+  </header>
+  <div class='container' style='margin-top:100px'>
+    <div class='row'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-6'>
+            <h2 id='spedningSummary' style='margin-bottom:20px;'></h2>
+          </div>
+          <div class='col-md-6'>
+            <div class='dropdown' style='margin-top:20px;'>
+              <button class='btn pull-btn-default dropdown-toggle' data-toggle='dropdown' id=
+              'menu1' type='button'>Select Other Month<span class='caret'></span></button>
+              <ul aria-labelledby='menu1' class='dropdown-menu' role='menu'>
+                <%var month = ['January', 'February', 'March', 'April', 'May','June','July', 'August', 'September', 'October', 'November', 'December'];%><%var monthYear=''; %><%for(var i=0; i < result.length; i++) { %><%monthYear = month[result[i].month-1] +' '+result[i].year; %>
+                <li role='presentation'>
+                  <a href='#' role='menuitem' tabindex='-1'><%=monthYear%></a>
+                </li><%} %>
+              </ul>
+            </div>
+          </div>
+        </div><!--row-->
+      </div><!--continer-->
+      <div class='row'>
+        <div class='col-md-6'>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h3 class='panel-title'><i class='fa fa-long-arrow-right fa-fw'></i> Spending
+              Categories</h3>
+            </div>
+            <div class='panel-body'>
+              <div>
+                <div class='text-center' id='pieChart'></div>
+              </div>
+            </div>
+          </div>
+        </div><!--col -->
+        <div class='col-md-6'>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h3 class='panel-title'><i class='fa fa-long-arrow-right fa-fw'></i> <label class=
+              'budgeting'>Budget</label> vs <label class='spending'>Spending</label></h3>
+            </div>
+            <div class='panel-body' style='margin-top:48px'>
+              <div class='text-center' id='barChart'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h3 class='panel-title'><i class='fa fa-long-arrow-right fa-fw'></i>Spending</h3>
+            </div>
+            <div class='panel-body'>
+              <table cellspacing='0' class='table table-striped' id='categorySpendingTable' width=
+              '100%'>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Spending</th>
+                    <th>Budget</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src='/js/categorySpending.js'>
+      </script>
+    </div>
+  </div>
+</body>
+</html>

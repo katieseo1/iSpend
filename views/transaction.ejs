@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>iSpend</title>
+  <link href='/css/transaction.css' rel='stylesheet'>
+</head>
+<body class="container">
+  <header>
+    <%include header.ejs %>
+  </header>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg-10'>
+        <a class='btn btn-default' href='#menu-toggle' id='menu-toggle'><i class=
+        'fa fa-arrows-h'></i></a>
+        <div class='panel panel-default' style='margin-top:50px;'>
+          <div class='panel-heading'>
+            <div class='panel-title text-center'>
+              Add Spending
+            </div>
+          </div>
+          <div class='panel-body'>
+            <form class="form-horizontal" id="addTransactionForm" name="addTransactionForm">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Category:</label>
+                <div class="col-sm-10">
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle btn-block btn-primary"
+                    data-toggle="dropdown" id="menu1" type="button">Select <span class=
+                    "caret"></span></button>
+                    <ul aria-labelledby="menu1" class="dropdown-menu" role="menu">
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Entertainment</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Education</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Home</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Health</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Dining</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Groceries</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Travel</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">Transportation</a>
+                      </li>
+                      <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1">etc</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2">Date</label>
+                <div class="col-sm-10">
+                  <div class='input-group date date-picker datepicker-orient-top'>
+                    <input data-date-orientation='top auto' id='purchaseDate' name='purchaseDate'
+                    placeholder='YYYY-MM-DD' type='text'> <span class=
+                    'input-group-addon open-datetimepicker'><span class=
+                    'glyphicon glyphicon-calendar open-datetimepicker'></span></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2">Amount:</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="amount" name='amount' placeholder="Amount">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2">Description:</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="description" placeholder="description">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button class="btn btn-default btn-success pull-right" type=
+                  "submit">Submit</button>
+                </div>
+              </div>
+              <div id='messageTransaction'></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='/js/transaction.js'>
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.chart rect {
+  stroke: white;
+  fill: steelblue;
+}
+.chart text {
+  font: 13px sans-serif;
+  fill: red;
+}
+.chart rect.first {
+  stroke: none;
+  fill: #f69525;
+}
+.chart rect.second {
+  font: 10px sans-serif;
+  color: black;
+  stroke: none;
+  fill: #0f71b7;
+}
+.spending {
+  color: #0f71b7;
+}
+.budgeting {
+  color: #f69525;
+}

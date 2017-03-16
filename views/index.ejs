@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<link href='/css/common.css' rel='stylesheet'>
+	<link href='/css/index.css' rel='stylesheet'>
+	<title>iSpend</title>
+</head>
+<body>
+	<div class="preload"></div>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-lg-6 intro'>
+				<div class="logo">
+					<a href="\"><img alt="logo" src="img/logo.png" alt ='logo image'></a>
+				</div>
+				<h2 class="landing-header">Track your spending</h2>
+				<div class="landing-text">
+					<p>iSpend allows you to check spending and set up budget easily. Signup now to control your finance!</p>
+					<button class='btn btn-primary btn-lg signup-btn' onClick="javascript:location.href='/signup'" type='button'>Sign up</button>
+				</div>
+			</div>
+			<div class='col-lg-6'>
+				<!-- LOGIN FORM -->
+				<div class='panel panel-default panel-background'>
+					<div class='panel-body transparent panel-background'>
+						<div class="login-header">
+							<h3 class="form-title text-center"></h3>
+							<h2>Login</h2><%if (message.length > 0) { %>
+							<div class='alert alert-danger'>
+								<%= message %>
+							</div><%} %>
+							<form action='/login'  class='signup-form' method='post'>
+								<div class='form-group'>
+									<label>Email/username</label>
+                  <input class='form-control' name='email' class='email' type='text' value='test'>
+								</div>
+								<div class='form-group'>
+									<label>Password</label>
+                  <input class='form-control' name='password' class='password' type='password' value='123456'>
+								</div><button class='btn btn-primary btn-lg pull-right' type='submit'>Login</button>
+								<p>Need an account? <a href='/signup' style='color:white'>signup</a></p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
