@@ -2,8 +2,25 @@ require('dotenv').config();
 var mysql = require('mysql');
 var pool;
 
-module.exports = {
 
+var testDB = createDBpool(process.env.DB_TEST);
+var productionDB = createDBpool(process.env.DB_PRODUCTION);
+
+
+function createDBpool (mode){
+  pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: mode
+  });
+  console.log("created pool for"+mode)
+
+
+  return pool;
+}
+
+module.exports = {
   createPool : function (mode){
     var pool = mysql.createPool({
       host: process.env.DB_HOST,
@@ -11,14 +28,13 @@ module.exports = {
       password: process.env.DB_PASS,
       database: mode
     });
-
-    console.log("created DB FOR  ********"+mode);
-
     return pool;
   }
   ,
-  pool: function() {
-    return pool
+  pool: function(mode) {
+    console.log("YOU ARE CHOOSING DB  ********"+mode);
+
+    return mode===process.env.DB_PRODUCTION? productionDB : testDB
   },
   qry: function(qry,pool){
     pool.getConnection(function(err, connection) {

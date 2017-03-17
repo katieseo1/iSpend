@@ -8,8 +8,9 @@ require('bootbox');
 var validation = require('./validator')
 
 function setBudgetRequest(data) {
+  console.log(data);
   $.ajax({
-    method: 'POST',
+    method: 'PUT',
     url: '/setBudget',
     data: JSON.stringify(data),
     async: true,
@@ -51,6 +52,7 @@ function setBudget() {
   setBudgetRequest({
     'budget': budgets
   });
+
 }
 
 function handleSetBudget() {

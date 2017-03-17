@@ -7907,8 +7907,9 @@ __webpack_require__(72);
 var validation = __webpack_require__(77)
 
 function setBudgetRequest(data) {
+  console.log(data);
   $.ajax({
-    method: 'POST',
+    method: 'PUT',
     url: '/setBudget',
     data: JSON.stringify(data),
     async: true,
@@ -7950,6 +7951,7 @@ function setBudget() {
   setBudgetRequest({
     'budget': budgets
   });
+
 }
 
 function handleSetBudget() {

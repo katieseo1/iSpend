@@ -32,7 +32,7 @@ function getCategorySpending(date, categorySpendingTable, dounutChart) {
       'month': date.mm
     },
     success: function(data) {
-      chart.setUpPieChart(preprocessData(data));
+      chart.setUpPieChart(preprocessData(data), '#pieChart');
       categorySpendingTable.clear().draw();
       for (var i = 0; i < data.result.length; i++) {
         categorySpendingTable.row.add([data.result[i].name, '$' + data.result[i].amount.toFixed(
@@ -53,7 +53,8 @@ function getSpendingVsBudget(date) {
       'month': date.mm
     },
     success: function(data) {
-      chart.setUpBarChart(data);
+      console.log(data);
+      chart.setUpBarChart(data.result, '#barChart');
     }
   });
 }

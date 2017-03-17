@@ -46,6 +46,7 @@ module.exports = function (app, passport) {
       errMsg(res)
       return res.json()
     }).then(function (data) {
+      console.log(data)
       res.json(data)
     })
   })
@@ -83,16 +84,17 @@ module.exports = function (app, passport) {
       errMsg(res)
       return res.json()
     }).then(function (data) {
+      console.log(data);
       res.render('budget.ejs', {
-        result: data
+        data: data
       })
     })
   })
   // Set Budget
-  app.post('/setBudget', isLoggedIn, (req, res) => {
+  app.put('/setBudget', isLoggedIn, (req, res) => {
     req.body.userId = req.user.id
     fetch(apiURL + 'setBudget/', {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'

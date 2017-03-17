@@ -11,7 +11,7 @@
   <div class='container'>
     <div class='row'>
       <div class='col-lg-10'>
-        <div class='panel panel-default' style='margin-top:50px;'>
+        <div class='panel panel-default panel--margin' style='margin-top:50px;'>
           <div class='panel-heading'>
             <div class='panel-title text-center'>
               Budgeting
@@ -27,12 +27,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <%for(var i=0; i < result.categoryList.length; i++) { %>
+                  <%for(var i=0; i < data.result.length; i++) { %>
                   <tr>
-                    <td data-id='<%=result.categoryList[i].id %>'>
-                    <%= result.categoryList[i].name  %></td>
+                    <td data-id='<%=data.result[i].id %>'>
+                    <%= data.result[i].name  %></td>
                     <td><input class='newBudget form-control' data-id=
-                    '<%=result.categoryList[i].id %>' min="1" name='budget' type='number'></td>
+                    '<%=data.result[i].id %>' min="1" name='budget' type='number'></td>
                   </tr><%} %>
                 </tbody>
               </table><button class='btn btn-success pull-right' type='submit'>Submit</button>

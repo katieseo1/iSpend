@@ -1,5 +1,5 @@
-function setUpBarChart(data, chart) {
-  d3.select("#barChart").select("svg").remove();
+function setUpBarChart(data,barChartId) {
+  d3.select(barChartId).select("svg").remove();
   var data = [data[0].budgets, data[0].spendings];
   var bar_w = 55,
     bar_h = 250,
@@ -7,7 +7,7 @@ function setUpBarChart(data, chart) {
     bar_padding = 25;
   var x = d3.scaleLinear().domain([0, 1]).range([0, bar_w + bar_padding]);
   var y = d3.scaleLinear().domain([0, d3.max(data)]).rangeRound([0, bar_h - label_padding]);
-  var chart = d3.select("#barChart").append("svg").attr("class", "chart").attr("width", (bar_w *
+  var chart = d3.select(barChartId).append("svg").attr("class", "chart").attr("width", (bar_w *
     data.length) + bar_padding).attr("height", bar_h);
   chart.selectAll("rect").data(data).enter().append("rect").attr("x", function(d, i) {
     return x(i) - .5;
@@ -34,8 +34,8 @@ function setUpBarChart(data, chart) {
   });
 }
 
-function setUpPieChart(data) {
-  d3.select("#pieChart").select("svg").remove();
+function setUpPieChart(data, pieChartId) {
+  d3.select(pieChartId).select("svg").remove();
   var width = 300,
     height = 300,
     radius = Math.min(width, height) / 2;
@@ -45,7 +45,7 @@ function setUpPieChart(data) {
   })(data);
   var arc = d3.arc().outerRadius(radius - 10).innerRadius(radius - 70);
   var labelArc = d3.arc().outerRadius(radius - 40).innerRadius(radius - 40);
-  var svg = d3.select("#pieChart").append("svg").attr("width", width).attr("height", height).append(
+  var svg = d3.select(pieChartId).append("svg").attr("width", width).attr("height", height).append(
     "g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"); // Moving the center point. 1/2 the width and 1/2 the height
   var g = svg.selectAll("arc").data(pie).enter().append("g").attr("class", "arc");
   g.append("path").style("fill", function(d) {
