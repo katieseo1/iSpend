@@ -1,13 +1,9 @@
 require('dotenv').config()
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
-var express = require('express')
 
 module.exports = function (app, pool) {
-  console.log(pool)
-
   function executeQry (qry, res) {
-    var res = res
     pool.getConnection(function (err, connection) {
       connection.query(qry, res, function (err, rows) {
         connection.release()
@@ -43,7 +39,7 @@ module.exports = function (app, pool) {
   })
   // Get Spending for each category
   app.get('/api/categorySpending', (req, res) => {
-    var userId= Number(req.query.userId)
+    var userId = Number(req.query.userId)
     var qry = `SELECT t1.name, t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
     FROM category AS t1 JOIN (SELECT (SELECT sum(amount)
     FROM spending WHERE user_id = ${userId}) as total, category_id, sum(amount) as amount

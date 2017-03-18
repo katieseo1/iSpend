@@ -84,7 +84,7 @@ module.exports = function (app, passport) {
       errMsg(res)
       return res.json()
     }).then(function (data) {
-      console.log(data);
+      console.log(data)
       res.render('budget.ejs', {
         data: data
       })

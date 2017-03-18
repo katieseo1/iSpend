@@ -5,6 +5,7 @@ require('../css/custom.css');
 require('../css/categorySpending.css');
 require('../node_modules/datatables.net-bs/css/datatables.bootstrap.css');
 require('bootstrap');
+
 var bootbox = require('bootbox');
 var datatables = require("datatables.net");
 var chart = require('./chart')

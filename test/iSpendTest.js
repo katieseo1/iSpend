@@ -49,7 +49,7 @@ describe('iSpend API TEST', function () {
     // 3.Compare the number of results with the records in the db
   describe('GET endpoint', function () {
     it('/categorySpendingStat : should return category spending data', function () {
-      return chai.request(app).get(`/api/categorySpendingStat?userId=${mockingData.userId}&&year=${mockingData.year}&month=${mockingData.month}`).then(res => {
+      return chai.request(app).get(`/api/categorySpendingStat?userId=${mockingData.userId}&&year=${mockingData.year}&month=${mockingData.month}`).then(function (res) {
         res.should.have.status(200)
         res.body.result.should.have.length.of.at.least(1)
         var qry = `SELECT t3.budgets,t1.name,t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
@@ -70,7 +70,7 @@ describe('iSpend API TEST', function () {
       })
     })
     it('/categorySpending : should return available records for year & month', function () {
-      return chai.request(app).get(`/api/categorySpending?userId=${mockingData.userId}`).then(res => {
+      return chai.request(app).get(`/api/categorySpending?userId=${mockingData.userId}`).then(function (res) {
         res.should.have.status(200)
         res.body.result.should.have.length.of.at.least(1)
         var qry = `SELECT t1.name, t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
@@ -86,7 +86,7 @@ describe('iSpend API TEST', function () {
       })
     })
     it('/transaction : should return all the category list', function () {
-      return chai.request(app).get(`/api/transaction`).then(res => {
+      return chai.request(app).get(`/api/transaction`).then(function (res) {
         res.should.have.status(200)
         res.body.result.should.have.length.of.at.least(1)
         var qry = 'SELECT distinct name FROM category'
@@ -97,7 +97,7 @@ describe('iSpend API TEST', function () {
       })
     })
     it('/yearMonth : should return a list of year and month for spending', function () {
-      return chai.request(app).get(`/api/yearMonth?userId=${mockingData.userId}`).then(res => {
+      return chai.request(app).get(`/api/yearMonth?userId=${mockingData.userId}`).then(function (res) {
         res.should.have.status(200)
         res.body.result.should.have.length.of.at.least(1)
         var qry = `SELECT Year(purchase_date) as year, month(purchase_date) as month
@@ -111,7 +111,7 @@ describe('iSpend API TEST', function () {
       })
     })
     it('/budget : should return list category for the budget', function () {
-      return chai.request(app).get(`/api/budget`).then(res => {
+      return chai.request(app).get(`/api/budget`).then(function (res) {
         res.should.have.status(200)
         res.body.result.should.have.length.of.at.least(1)
         var qry = 'SELECT id, name FROM category;'
@@ -122,7 +122,7 @@ describe('iSpend API TEST', function () {
       })
     })
     it('/spendingVsBudget : budgets and sepdning for a user based on year and month', function () {
-      return chai.request(app).get(`/api/spendingVsBudget?userId=${mockingData.userId}&year=${mockingData.year}&month=${mockingData.month}`).then(res => {
+      return chai.request(app).get(`/api/spendingVsBudget?userId=${mockingData.userId}&year=${mockingData.year}&month=${mockingData.month}`).then(function (res) {
         res.should.have.status(200)
         res.body.result.should.have.length.of.at.least(1)
         var qry = `SELECT budgets, spendings FROM
