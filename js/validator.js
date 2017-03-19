@@ -1,4 +1,4 @@
-var transactionForm = function() {
+var transactionForm = function () {
   $('#addTransactionForm').bootstrapValidator({
     container: '#messageTransaction',
     fields: {
@@ -25,15 +25,15 @@ var transactionForm = function() {
             message: 'The  name is required and cannot be empty'
           }
         }
-      },
+      }
     }
-  }).on('success.field.fv', function(e, data) {
+  }).on('success.field.fv', function (e, data) {
     if (data.fv.getInvalidFields().length > 0) {
-      data.fv.disableSubmitButtons(true);
+      data.fv.disableSubmitButtons(true)
     }
-  });
+  })
 }
-var setBudgetForm = function() {
+var setBudgetForm = function () {
   $('#setBudget').bootstrapValidator({
     container: '#messagesBudget',
     fields: {
@@ -48,13 +48,13 @@ var setBudgetForm = function() {
         }
       }
     }
-  }).on('success.field.fv', function(e, data) {
+  }).on('success.field.fv', function (e, data) {
     if (data.fv.getInvalidFields().length > 0) {
-      data.fv.disableSubmitButtons(true);
+      data.fv.disableSubmitButtons(true)
     }
-  });
+  })
 }
-var signUpForm = function() {
+var signUpForm = function () {
   $('#signup-form').bootstrapValidator({
     container: '#messages',
     fields: {
@@ -112,14 +112,14 @@ var signUpForm = function() {
             message: 'The password and its confirm are not the same'
           }
         }
-      },
+      }
     }
-  }).on('success.field.fv', function(e, data) {
+  }).on('success.field.fv', function (e, data) {
     if (data.fv.getInvalidFields().length > 0) { // There is invalid field
-      data.fv.disableSubmitButtons(true);
+      data.fv.disableSubmitButtons(true)
     }
-  });;
+  })
 }
-exports.transactionForm = transactionForm;
-exports.setBudgetForm = setBudgetForm;
-exports.signUpForm = signUpForm;
+exports.transactionForm = transactionForm
+exports.setBudgetForm = setBudgetForm
+exports.signUpForm = signUpForm

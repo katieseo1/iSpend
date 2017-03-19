@@ -20,6 +20,16 @@ body {
   background: linear-gradient(to left, #4B79A1, #283E51);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+h1 {
+  font-size: 5.9vw;
+}
+h2 {
+  font-size: 3.0vh;
+}
+p {
+  font-size: 2vmin;
+}
 .panel-background {
   background-color: transparent;
   border: none;
@@ -73,8 +83,8 @@ body {
   margin: 50px 0 20px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
-  padding-left: 20px;
-  padding-right: 20px;
+
+  padding:20px
 }
 .si-header {
   margin: 50px 0 20px;
@@ -129,8 +139,6 @@ body {
     margin: 150px 0 200px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 	.signup-header {
     margin: 10px 0 200px;
@@ -151,4 +159,13 @@ body {
 }
 .white {
   color: white;
+}
+
+
+.login-btn:hover {background-color: #3e8e41}
+
+.login-btn:active {
+  background-color: #5cb85c;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
 }

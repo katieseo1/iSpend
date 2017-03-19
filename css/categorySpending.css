@@ -16,9 +16,15 @@
   stroke: none;
   fill: #0f71b7;
 }
+.legend{
+  font-size: 10px;;
+}
 .spending {
   color: #0f71b7;
 }
 .budgeting {
   color: #f69525;
+}
+.category-btn{
+  color:green
 }

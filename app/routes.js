@@ -22,8 +22,9 @@ module.exports = function (app, passport) {
       errMsg(res)
       return res.json()
     }).then(function (data) {
+      console.log(data);
       res.render('categorySpending.ejs', {
-        result: data
+        data: data
       })
     })
   })
@@ -60,14 +61,16 @@ module.exports = function (app, passport) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(req.body)
-    }).then(function (res) {
-      errMsg(res)
-      return res.json()
-    }).then(res.json({
-      message: 'success'
-    }))
+    }).then(function(res) {
+    //  console.log(res.st)
+  errMsg(res);
+  console.log(res);
+  console.log("========")
+  return res.json();
+}).then(res.json(1));
+
   })
-  // transaction page
+  // Transaction page
   app.get('/transaction', isLoggedIn, (req, res) => {
     fetch(apiURL + 'transaction').then(function (res) {
       errMsg(res)
@@ -123,7 +126,7 @@ module.exports = function (app, passport) {
       message: req.flash('signupMessage')
     })
   })
-  // process the signup form
+  // Process the signup form
   app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/budget',
     failureRedirect: '/signup',

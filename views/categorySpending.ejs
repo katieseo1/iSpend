@@ -17,21 +17,18 @@
             <h2 id='spedningSummary' style='margin-bottom:20px;'></h2>
           </div>
           <div class='col-md-6'>
-            <div class='dropdown' style='margin-top:20px;'>
-              <button class='btn pull-btn-default dropdown-toggle' data-toggle='dropdown' id=
-              'menu1' type='button'>Select Other Month<span class='caret'></span></button>
-              <ul aria-labelledby='menu1' class='dropdown-menu' role='menu'>
-                <li role='presentation'>
-                  <a href='#' role='menuitem' tabindex='-1'>January 2017</a>
-                </li>
-                <li role='presentation'>
-                  <a href='#' role='menuitem' tabindex='-1'>February 2017</a>
-                </li>
-                <li role='presentation'>
-                  <a href='#' role='menuitem' tabindex='-1'>March 2017</a>
-                </li>
-              </ul>
-            </div>
+						<div class="dropdown">
+				<button class="btn pull-btn-default dropdown-toggle category-btn" data-toggle="dropdown" id="menu1" type="button">
+					Select Other Month<span class="caret"></span></button>
+				<ul aria-labelledby="menu1" class="dropdown-menu" role="menu">
+
+					<%var month = ["January", "February", "March", "April", "May","June","July", "August", "September", "October", "November", "December"];%>
+					<%var monthYear=''; %><%for(var i=0; i < data.result.length; i++) { %><%monthYear = month[data.result[i].month-1] +" "+data.result[i].year; %>
+					<li role="presentation">
+						<a href="#" role="menuitem" tabindex="-1"><%=monthYear%></a>
+					</li><%} %>
+				</ul>
+			</div>
           </div>
         </div><!--row-->
       </div><!--continer-->

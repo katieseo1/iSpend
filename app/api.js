@@ -1,22 +1,19 @@
 require('dotenv').config()
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
+const db = require('../config/dbConfig.js');
 
-module.exports = function (app, pool) {
+const connection = db.pool()
+
+module.exports = function (app) {
   function executeQry (qry, res) {
-    pool.getConnection(function (err, connection) {
-      connection.query(qry, res, function (err, rows) {
-        connection.release()
-        if (err) {
-          console.log(err.message)
-          res.status(500)
-        }
-        res.json({
-          result: rows
-        })
-      })
-    })
-  }
+    db.pool().query(qry, function(err, rows) {
+      if (err) console.log(err.message);
+      res.json({
+        result: rows
+      });
+    });
+}
 
   function errMsg (err, res) {
     res.status(500).json({
@@ -86,7 +83,17 @@ module.exports = function (app, pool) {
     ((SELECT id FROM category
     WHERE name ='${req.body.category}'),
 		${req.body.amount}, '${req.body.purchaseDate}','${req.body.description}', ${req.body.userId})`
-    executeQry(qry, res)
+    console.log(qry);
+  //  executeQry(qry, res)
+
+  connection.query(qry, function(err, rows) {
+    console.log("=======")
+    if (err) console.log(err.message);
+    res.json({
+      message: "success"
+    });
+  });
+
   })
   // Set budget
   app.put('/api/setBudget', (req, res) => {
