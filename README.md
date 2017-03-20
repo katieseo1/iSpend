@@ -1,4 +1,4 @@
-# iSpend
+## iSpend
 iSpend is the user friendly personal application for keeping track of spendings setting the budget.
 
 ![Screenshots](https://github.com/katieseo1/iSpend/screenShots/responsive.png)
@@ -38,4 +38,4 @@ data visualization, advanced css element, sortable column and user authenticatio
 ## Test the project
 * Seed data : `mysql -u username –-password=your_password database_name <  test/seedData.sql`
 * To run the test : 'npm test'
-* Demo/Login password : `test', `123456`
+* Demo/Login password : `test`, `123456`
