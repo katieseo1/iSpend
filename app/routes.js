@@ -5,7 +5,7 @@ module.exports = function (app, passport) {
   // Display error message
   function errMsg (res) {
     if (res.status >= 400) {
-      throw new Error('Bad response from server')
+      res.status(500)
     }
   }
   // Home page
@@ -22,7 +22,6 @@ module.exports = function (app, passport) {
       errMsg(res)
       return res.json()
     }).then(function (data) {
-      console.log(data);
       res.render('categorySpending.ejs', {
         data: data
       })
@@ -47,7 +46,6 @@ module.exports = function (app, passport) {
       errMsg(res)
       return res.json()
     }).then(function (data) {
-      console.log(data)
       res.json(data)
     })
   })
@@ -61,14 +59,10 @@ module.exports = function (app, passport) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(req.body)
-    }).then(function(res) {
-    //  console.log(res.st)
-  errMsg(res);
-  console.log(res);
-  console.log("========")
-  return res.json();
-}).then(res.json(1));
-
+    }).then(function (res) {
+      errMsg(res)
+      return res.json()
+    }).then(res.json({message:'success'}))
   })
   // Transaction page
   app.get('/transaction', isLoggedIn, (req, res) => {
@@ -87,7 +81,6 @@ module.exports = function (app, passport) {
       errMsg(res)
       return res.json()
     }).then(function (data) {
-      console.log(data)
       res.render('budget.ejs', {
         data: data
       })
@@ -106,7 +99,7 @@ module.exports = function (app, passport) {
     }).then(function (res) {
       errMsg(res)
       return res.json()
-    }).then(res.json(1))
+    }).then(res.json({message:'success'}))
   })
   // =============authentication===========//
   // logout

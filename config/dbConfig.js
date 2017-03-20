@@ -11,7 +11,6 @@ module.exports = {
        password: process.env.DB_PASS,
        database: mode
     })
-    console.log(mode+"chosen")
     return pool
   },
   pool: function () {
