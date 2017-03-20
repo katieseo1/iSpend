@@ -2,11 +2,9 @@
 iSpend is the user friendly personal application for keeping track of spendings setting the budget.
 
 ![Screenshots](https://github.com/katieseo1/iSpend/blob/master/screenShot/responsive.png)
-![Screenshots](https://github.com/katieseo1/iSpend/tree/master/screenShot/iSpendDemo.gif)
+![Screenshots](https://github.com/katieseo1/iSpend/blob/master/screenShot/iSpendDemo.gif)
 
 
-![Screenshots](https://github.com/katieseo1/ApartmentHunt/blob/master/img/responsive.png)
-![Screenshots](https://github.com/katieseo1/ApartmentHunt/blob/master/img/demo.gif)
 
 ##Summary
 Always running out of money before payday? Let's take control of your personal finances with iSpend.
