@@ -101,5 +101,4 @@ var signUpForm = function () {
   })
 }
 exports.transactionForm = transactionForm
-exports.setBudgetForm = setBudgetForm
 exports.signUpForm = signUpForm

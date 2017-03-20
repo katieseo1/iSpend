@@ -17,7 +17,7 @@ function setBudgetRequest (data) {
         size: 'small',
         message: 'Done budgeting',
         callback: function () {
-          location.reload()
+          window.location.reload()
         }
       })
     },
@@ -27,14 +27,15 @@ function setBudgetRequest (data) {
   return false
 }
 
-function checkBudgetInput(budgets){
-  for (var i = 0 ; i <budgets.length ; i++){
-    if(budgets[i][1]!==0){
-        return true
+function checkBudgetInput (budgets) {
+  for (var i = 0; i < budgets.length; i++) {
+    if (budgets[i][1] !== 0) {
+      return true
     }
   }
   return false
 }
+
 function setBudget () {
   var budgets = []
   var table = document.getElementById('budgetTable')
@@ -46,17 +47,14 @@ function setBudget () {
     } else {
       obj[Number($(table.rows[r].cells[1].childNodes[0]).attr('data-id'))] = 0
     }
-    var value = table.rows[r].querySelectorAll('.newBudget')[0].value
-    budgets.push([Number($(table.rows[r].cells[1].childNodes[0]).attr('data-id')), Number(table.rows[
-      r].querySelectorAll('.newBudget')[0].value)])
+    budgets.push([Number($(table.rows[r].cells[1].childNodes[0]).attr('data-id')), Number(table.rows[r].querySelectorAll('.newBudget')[0].value)])
   }
 
-  if (checkBudgetInput(budgets)){
+  if (checkBudgetInput(budgets)) {
     setBudgetRequest({
       'budget': budgets
     })
-  }
-  else{
+  } else {
     bootbox.alert('Please set budget')
   }
 }

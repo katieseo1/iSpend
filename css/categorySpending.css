@@ -28,3 +28,17 @@
 .category-btn{
   color:green
 }
+.category-container{
+  margin-top:100px
+}
+.spending-title{
+  margin-bottom:20px;
+  font-size:2em;
+}
+.spending-table .spending-chart{
+  margin-bottom:20px;
+  font-size:2em;
+}
+.barchart-panel{
+  margin-top:48px
+}

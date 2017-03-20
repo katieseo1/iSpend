@@ -6,8 +6,7 @@ require('../css/categorySpending.css')
 require('../node_modules/datatables.net-bs/css/datatables.bootstrap.css')
 require('bootstrap')
 
-var bootbox = require('bootbox')
-var datatables = require('datatables.net')
+require('datatables.net')
 var chart = require('./chart')
   // Format data
 function preprocessData (data) {
@@ -69,21 +68,6 @@ function formatDate (date) {
   }
 }
 
-function arcTween (a) {
-  var i = d3.interpolate(this._current, a)
-  this._current = i(0)
-  return function (t) {
-    return arc(i(t))
-  }
-}
-
-function labelarcTween (a) {
-  var i = d3.interpolate(this._current, a)
-  this._current = i(0)
-  return function (t) {
-    return 'translate(' + labelArc.centroid(i(t)) + ')'
-  }
-}
 $(function () {
   var today = new Date()
   var categorySpendingTable = $('#categorySpendingTable').DataTable({
@@ -98,7 +82,6 @@ $(function () {
   })
   $('.dropdown-menu li a').click(function (e) {
     var selectedDate = new Date($(this).text())
-    console.log(selectedDate)
     getCategorySpending(formatDate(selectedDate), categorySpendingTable, pie)
     getSpendingVsBudget(formatDate(selectedDate))
   })

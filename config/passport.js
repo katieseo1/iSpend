@@ -22,12 +22,12 @@ module.exports = function(passport) {
     passReqToCallback: true
   }, function(req, email, password, done) {
     var connection = db.pool()
-    connection.query("select * from users where username = '" + email + "'", function(err,
+    connection.query("select * from users where email = '" + email + "'", function(err,
       rows) {
       if (err) return done(err);
       if (rows.length) {
         return done(null, false, req.flash('signupMessage',
-          'That email is already taken.'));
+          'That email/username is already taken.'));
       } else {
         var newUserMysql = new Object();
         newUserMysql.email = email;
@@ -48,11 +48,7 @@ module.exports = function(passport) {
     passwordField: 'password',
     passReqToCallback: true
   }, function(req, email, password, done) {
-
     var connection = db.pool()
-    console.log(connection)
-    console.log("HHHHHHH")
-
     db.pool().query("SELECT * FROM `users` WHERE `email` = '" + email + "'", function(err,
       rows) {
       if (err) return done(err);

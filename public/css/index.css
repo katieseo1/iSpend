@@ -6756,173 +6756,198 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 html, body {
-  width: 100%;
-  overflow-x: hidden;
+	width: 100%;
+	overflow-x: hidden;
 }
 body {
-  height: 100%;
-  font-family: "Lato", ;
-  font-weight: 300;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-  line-height: 28px;
-  overflow-x: hidden;
-  position: relative;
-  color: white;
-  background: #4B79A1;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #4B79A1, #283E51);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4B79A1, #283E51);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-h1 {
-  font-size: 7.9vw;
-}
-h2 {
-  font-size: 3.0vh;
-}
-p {
-  font-size: 2vmin;
+	height: 100%;
+	font-family: "Lato", ;
+	font-weight: 300;
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	line-height: 28px;
+	overflow-x: hidden;
+	position: relative;
+	color: white;
+	background: #4B79A1;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #4B79A1, #283E51);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #4B79A1, #283E51);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .panel-background {
-  background-color: transparent;
-  border: none;
-}
-#preload {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  background: #fff url(public/img/loading.gif) no-repeat center center;
+	background-color: transparent;
+	border: none;
 }
 .logo {
-  margin-top: 70px;
-  margin-bottom: 20px;
+	margin-top: 70px;
+	margin-bottom: 20px;
 }
 .logo img {
-  width: 150px;
-  height: 37px
+	width: 150px;
+	height: 37px
 }
-.landing h1 {
-  font-size: 56px;
+.login-title {
+	font-size: 2.0em;
+}
+.landing .title {
+	font-size: 2.0em;
   font-weight: 300;
-  color: #fff;
-  margin: 30px 0 30px 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	color: #fff;
+	margin: 30px 0 30px 0;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	line-height: 120%;
+	margin: auto;
 }
 .landing-header {
-  margin: auto;
-  display: block;
+	margin: auto;
+	display: block;
 }
 .landing-text {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
-.landing-text p {
-  font-size: 17px;
-  margin-bottom: 30px;
+.landing-text .landing-message {
+	font-size: 1.3em;
+	font-weight: 300;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	line-height: 150%;
+  font-style: italic;
 }
 .signup-btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin: auto;
-  display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin: auto;
+	display: block;
 }
 .signup-form {
-  padding-bottom: 20px;
+	padding-bottom: 20px;
 }
 .login-header {
-  margin: 50px 0 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-
-  padding:20px
-}
-.si-header {
-  margin: 50px 0 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  padding-left: 20px;
-  padding-right: 20px;
+	margin: 50px 0 20px;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 4px;
+	padding: 20px
 }
 .login-header h3 {
-  padding: 20px 0 10px;
-  color: white;
-  font-weight: 300;
+	padding: 20px 0 10px;
+	color: white;
+	font-weight: 300;
 }
 .login-header p {
-  color: white;
-  margin-bottom: 50px;
+	color: white;
+	margin-bottom: 50px;
 }
 @media (min-width: 768px) {
-  .logo img {
-    width: 200px;
-    height: 55px
-  }
-  .landing-text p {
-    margin-top: 30px;
-    font-size: 24px;
-    line-height: 35px;
-    font-family: "Arial";
-    margin-bottom: 20px;
-  }
-  .intro h2, .signup-btn {
-    display: block;
-    margin: 0;
-  }
+	.logo img {
+		width: 200px;
+		height: 55px
+	}
+	.landing .title {
+		font-size: 2.5em;
+	}
+	.landing-header {
+		margin: auto;
+		display: block;
+	}
+	.landing-text {
+		margin-bottom: 20px;
+	}
+	.landing-text .landing-message {
+		font-size: 1.5em;
+
+	}
+
+	.intro h2, .signup-btn {
+		display: block;
+		margin: 0;
+	}
 }
 @media (min-width: 1200px) {
-  .logo {
-    margin-top: 200px;
-    margin-bottom: 20px;
-  }
-  .logo img {
-    width: 200px;
-    height: 55px
-  }
-  .landing-text p {
-    margin-top: 30px;
-    font-size: 24px;
-    line-height: 35px;
-    font-family: "Arial";
-    margin-bottom: 20px;
-  }
-  .login-header {
-    margin: 150px 0 200px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-  }
+	.logo {
+		margin-top: 200px;
+		margin-bottom: 20px;
+	}
+	.logo img {
+		width: 200px;
+		height: 55px
+	}
+	.login-header {
+		margin: 180px 0 200px;
+		padding: 50px;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 4px;
+	}
 	.signup-header {
-    margin: 10px 0 200px;
+		margin: 10px 0 200px;
 		padding-bottom: 50px;
-		padding-top:20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+		padding-top: 20px;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 4px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 .navbar-custom {
-  background: #4B79A1;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #4B79A1, #283E51);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4B79A1, #283E51);
+	background: #4B79A1;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #4B79A1, #283E51);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #4B79A1, #283E51);
 }
 .white {
-  color: white;
+	color: white;
 }
 
+/* login btn loading effect */
+.login-btn:focus, .login-btn:active {
+	color: #4B79A1;
+	text-shadow: 1px 1px 1px #000;
+	background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.6) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 75%, transparent 75%, transparent), -webkit-linear-gradient(top, #f6f5f0, #e1e0dc);
+	background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.6) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 75%, transparent 75%, transparent), -moz-linear-gradient(top, #f6f5f0, #e1e0dc);
+	background: -ms-linear-gradient(-45deg, rgba(255, 255, 255, 0.6) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 75%, transparent 75%, transparent), -ms-linear-gradient(top, #f6f5f0, #e1e0dc);
+	background: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.6) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 75%, transparent 75%, transparent), -o-linear-gradient(top, #f6f5f0, #e1e0dc);
+	background: linear-gradient(-45deg, rgba(255, 255, 255, 0.6) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 75%, transparent 75%, transparent), linear-gradient(top, #f6f5f0, #e1e0dc);
+	-pie-background: linear-gradient(-45deg, rgba(255, 255, 255, 0.6) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 75%, transparent 75%, transparent), linear-gradient(top, #f6f5f0, #e1e0dc);
+	background-repeat: repeat;
+	-webkit-background-size: 40px 40px, 100% 100%;
+	-moz-background-size: 40px 40px, 100% 100%;
+	-ms-background-size: 40px 40px, 100% 100%;
+	-o-background-size: 40px 40px, 100% 100%;
+	background-size: 40px 40px, 100% 100%;
+	-webkit-animation: progress-bar-stripes 2s linear infinite;
+	-moz-animation: progress-bar-stripes 2s linear infinite;
+	-ms-animation: progress-bar-stripes 2s linear infinite;
+	-o-animation: progress-bar-stripes 2s linear infinite;
+	animation: progress-bar-stripes 2s linear infinite;
+}
+@-webkit-keyframes progress-bar-stripes {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 40px 0;
+	}
+}
+@-moz-keyframes progress-bar-stripes {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 40px 0;
+	}
+}
+@keyframes progress-bar-stripes {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 40px 0;
+	}
+}
 
-.login-btn:hover {background-color: #3e8e41}
-
-.login-btn:active {
-  background-color: #5cb85c;
-  box-shadow: 0 5px #666;
-  transform: translateY(10px);
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label{
+	color:white !important
 }
