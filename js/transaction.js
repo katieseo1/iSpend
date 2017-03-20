@@ -3,18 +3,20 @@ require('../node_modules/bootstrap/dist/css/bootstrap.css')
 require('../css/categorySpending.css')
 require('../node_modules/datatables.net-bs/css/datatables.bootstrap.css')
 require('../css/custom.css')
+require('../css/transaction.css')
 require('bootstrap')
 require('bs-validator')
 require('bootstrap-datepicker')
+
 var bootbox = require('bootbox')
 var validation = require('./validator')
 
 function reset (data) {
   bootbox.alert({
     size: 'small',
-    message: 'Added transection ',
+    message: 'Added transaction ',
     callback: function () {
-      location.reload()
+      window.location.reload()
     }
   })
 }
@@ -69,7 +71,8 @@ function handleAddTransaction () {
 
 $(function () {
   $('.date-picker').datepicker({
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    orientation: 'bottom auto'
   })
   $('.dropdown-menu li a').click(function (e) {
     $('#menu1').text($(this).text())

@@ -39,10 +39,8 @@ function setUpPieChart (data, pieChartId) {
   var width = 300,
     height = 300,
     radius = Math.min(width, height) / 2
-    var legendRectSize = (radius * 0.05);
-var legendSpacing = radius * 0.02;
-
-
+  var legendRectSize = (radius * 0.05)
+  var legendSpacing = radius * 0.02
 
   var color = d3.scaleOrdinal(d3.schemeCategory10)
   var pie = d3.pie().value(function (d) {
@@ -70,25 +68,23 @@ var legendSpacing = radius * 0.02;
          .enter()
          .append('g')
          .attr('class', 'legend')
-         .attr('transform', function(d, i) {
-             var height = legendRectSize + legendSpacing;
-             var offset =  height * color.domain().length / 2;
-             var horz = -3 * legendRectSize;
-             var vert = i * height - offset;
-             return 'translate(' + horz + ',' + vert + ')';
-         });
-         legend.append('rect')
+         .attr('transform', function (d, i) {
+           var height = legendRectSize + legendSpacing
+           var offset = height * color.domain().length / 2
+           var horz = -3 * legendRectSize
+           var vert = i * height - offset
+           return 'translate(' + horz + ',' + vert + ')'
+         })
+  legend.append('rect')
       .attr('width', legendRectSize)
       .attr('height', legendRectSize)
       .style('fill', color)
-      .style('stroke', color);
+      .style('stroke', color)
 
   legend.append('text')
       .attr('x', legendRectSize + legendSpacing)
       .attr('y', legendRectSize - legendSpacing)
-      .text(function(d) { return d; });
-
-
+      .text(function (d) { return d })
 
   return pie
 }

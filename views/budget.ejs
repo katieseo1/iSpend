@@ -1,53 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <title>iSpend</title>
-  <link href='/css/budget.css' rel='stylesheet'>
+	<title>iSpend</title>
+	<link href='/css/budget.css' rel='stylesheet'>
 </head>
 <body>
-  <header>
-    <%include header.ejs %>
-  </header>
-  <div class='container'>
-    <div class='row'>
-      <div class='col-lg-10'>
-        <div class='panel panel-default panel--margin' style='margin-top:50px;'>
-          <div class='panel-heading'>
-            <div class='panel-title text-center'>
-              Budgeting
-            </div>
-          </div>
-          <div class='panel-body'>
-            <form id='setBudget' name="setBudget">
-              <table class='budgetTable table table-striped' id='budgetTable'>
-                <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th>Budget</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%for(var i=0; i < data.result.length; i++) { %>
-                  <tr>
-                    <td data-id='<%=data.result[i].id %>'>
-                    <%= data.result[i].name  %></td>
-                    <td><input class='newBudget form-control' data-id=
-                    '<%=data.result[i].id %>' min="1" name='budget' type='number'></td>
-                  </tr><%} %>
-                </tbody>
-              </table><button class='btn btn-success pull-right' type='submit'>Submit</button>
-              <div class='form-group'>
-                <div class='col-md-9 col-md-offset-3'>
-                  <div id='messagesBudget'></div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src='/js/budget.js'>
-  </script>
+	<header>
+		<%include header.ejs %>
+	</header>
+	<div class='container budget-container'>
+		<div class='row'>
+			<div class='col-lg-10'>
+				<div class='panel panel-default'>
+					<div class='panel-heading'>
+						<div class='panel-title text-center'>
+							<h3> Budgeting </h3>
+						</div>
+					</div>
+					<div class='panel-body'>
+						<form id='setBudget' name='setBudget'>
+							<table class='budgetTable table table-striped' id='budgetTable'>
+								<thead>
+									<tr>
+										<th>Category</th>
+										<th>Budget</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%for(var i=0; i < data.result.length; i++) { %>
+									<tr>
+										<td data-id='<%=data.result[i].id %>'><%= data.result[i].name  %></td>
+										<td><input name='newBudget' class='newBudget form-control' data-id='<%=data.result[i].id %>' min='1' name='budget' type='number'></td>
+									</tr><%} %>
+								</tbody>
+							</table><button class='btn btn-success pull-right' type='submit'>Submit</button>
+							<div class='form-group'>
+								<div class='col-md-9 col-md-offset-3'>
+									<div id='messagesBudget'></div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src='/js/budget.js'>
+	</script>
 </body>
 </html>

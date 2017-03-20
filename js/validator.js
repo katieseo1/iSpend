@@ -33,27 +33,7 @@ var transactionForm = function () {
     }
   })
 }
-var setBudgetForm = function () {
-  $('#setBudget').bootstrapValidator({
-    container: '#messagesBudget',
-    fields: {
-      newBudget: {
-        validators: {
-          notEmpty: {
-            message: 'It cannot be empty'
-          },
-          numeric: {
-            message: 'Please enter numeric score'
-          }
-        }
-      }
-    }
-  }).on('success.field.fv', function (e, data) {
-    if (data.fv.getInvalidFields().length > 0) {
-      data.fv.disableSubmitButtons(true)
-    }
-  })
-}
+
 var signUpForm = function () {
   $('#signup-form').bootstrapValidator({
     container: '#messages',

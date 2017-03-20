@@ -2,13 +2,11 @@ global.jQuery = $ = require('jquery')
 require('../node_modules/bootstrap/dist/css/bootstrap.css')
 require('../css/custom.css')
 require('bootstrap')
-var bootbox = require('bootbox')
 require('bs-validator')
 require('bootbox')
-var validation = require('./validator')
+var bootbox = require('bootbox')
 
 function setBudgetRequest (data) {
-  console.log(data)
   $.ajax({
     method: 'PUT',
     url: '/setBudget',
@@ -17,7 +15,7 @@ function setBudgetRequest (data) {
     success: function (data) {
       bootbox.alert({
         size: 'small',
-        message: 'Set budget',
+        message: 'Done budgeting',
         callback: function () {
           location.reload()
         }
@@ -29,6 +27,14 @@ function setBudgetRequest (data) {
   return false
 }
 
+function checkBudgetInput(budgets){
+  for (var i = 0 ; i <budgets.length ; i++){
+    if(budgets[i][1]!==0){
+        return true
+    }
+  }
+  return false
+}
 function setBudget () {
   var budgets = []
   var table = document.getElementById('budgetTable')
@@ -44,9 +50,15 @@ function setBudget () {
     budgets.push([Number($(table.rows[r].cells[1].childNodes[0]).attr('data-id')), Number(table.rows[
       r].querySelectorAll('.newBudget')[0].value)])
   }
-  setBudgetRequest({
-    'budget': budgets
-  })
+
+  if (checkBudgetInput(budgets)){
+    setBudgetRequest({
+      'budget': budgets
+    })
+  }
+  else{
+    bootbox.alert('Please set budget')
+  }
 }
 
 function handleSetBudget () {
@@ -58,5 +70,4 @@ function handleSetBudget () {
 }
 $(function () {
   handleSetBudget()
-  validation.setBudgetForm()
 })

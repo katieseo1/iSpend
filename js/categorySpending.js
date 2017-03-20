@@ -98,7 +98,7 @@ $(function () {
   })
   $('.dropdown-menu li a').click(function (e) {
     var selectedDate = new Date($(this).text())
-    console.log(selectedDate);
+    console.log(selectedDate)
     getCategorySpending(formatDate(selectedDate), categorySpendingTable, pie)
     getSpendingVsBudget(formatDate(selectedDate))
   })
