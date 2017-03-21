@@ -64,7 +64,6 @@ function closeServer () {
   })
 }
 if (require.main === module) {
-  //dbPool=database.createPool(process.env.DB_PRODUCTION)
   runServer(process.env.DB_PRODUCTION, process.env.DB_PORT).catch(err => console.error(err))
 };
 
