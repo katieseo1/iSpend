@@ -1,23 +1,23 @@
 # iSpend
-iSpend is the user friendly personal application for keeping track of spendings setting the budget.
+iSpend is a user friendly personal financial application to track of daily spending and budget by categories.
 
 ![Screenshots](https://github.com/katieseo1/iSpend/blob/master/screenShot/responsive.png)
 
 ![Screenshots](https://github.com/katieseo1/iSpend/blob/master/screenShot/iSpendDemo.gif)
 
 ## Summary
-Always running out of money before payday? Let's take control of your personal finances with iSpend. This responsive app can help you keep track of spending and set budget. You can easily see if you are actually keeping to your budget.  
+Always running out of money before payday? Let's take control of your personal finances with iSpend. This responsive app can help you keep track of your spending and set the budget. You can easily see what your actual spending is and compare it with your budget.  
 
 ## Live Site
 You can access iSpend at http://ispend.org/
 
 ## Technical
 * The front-end is built using HTML5, CSS3 and the back-end uses Node.js with Express as
-the web server and mySql as the database.
-* Extensive form validation is demonstrated throughout the app.
-* Libraries such as D3 chart, Bootstrap, datatTables and Passport.js is also used for
+the web server and MySQL as the database.
+* Extensive input data validation is demonstrated throughout the app.
+* Libraries such as D3 chart, Bootstrap, datatTables and Passport.js are used for
 data visualization, advanced css element, sortable column and user authentication.
-* The app is fully responsive for mobile and desktop.
+* The app is fully responsive for both mobile and desktop.
 * The app is fully unit tested on the front and backend with Mocha.
 * The app is deployed on the AWS EC2 Cloud.
 
