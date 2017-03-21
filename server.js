@@ -3,7 +3,7 @@ var dbPool = null
 var server = null
 var express = require('express')
 var app = express()
-var port = process.env.PORT || 80
+var port
 var passport = require('passport')
 var flash = require('connect-flash')
 var morgan = require('morgan')
@@ -40,7 +40,9 @@ require('./app/api.js')(app)
 require('./config/passport')(passport)
 require('./app/routes.js')(app, passport)
 
-function runServer (mode) {
+function runServer (mode, portChoice) {
+  dbPool=database.createPool(mode)
+  port = portChoice
   return new Promise((resolve, reject) => {
     server = app.listen(port, () => {
       resolve()
@@ -58,12 +60,12 @@ function closeServer () {
       }
       resolve()
     })
-    dbPool.destroy()
+    dbPool.end()
   })
 }
 if (require.main === module) {
-  dbPool=database.createPool(process.env.DB_PRODUCTION)
-  runServer(process.env.DB_PRODUCTION).catch(err => console.error(err))
+  //dbPool=database.createPool(process.env.DB_PRODUCTION)
+  runServer(process.env.DB_PRODUCTION, process.env.DB_PORT).catch(err => console.error(err))
 };
 
 module.exports = {

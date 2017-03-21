@@ -5,9 +5,9 @@ var db = require('../config/dbConfig.js')
 
 module.exports = function (app) {
   function executeQry (qry, res) {
-    if(db.pool().state === 'disconnected'){
-    errMsg('server error', res)
-  }
+    if (db.pool().state === 'disconnected') {
+      errMsg('server error', res)
+    }
     db.pool().query(qry, function (err, rows) {
       if (err) errMsg(err, res)
       res.json({
@@ -17,16 +17,18 @@ module.exports = function (app) {
   }
 
   function errMsg (err, res) {
-    res.status(500).json({
-      message: 'Internal server error'
-    })
+    if (err) {
+      res.status(500).json({
+        message: 'Internal server error'
+      })
+    }
   }
   // category Spending Stat
   app.get('/api/categorySpendingStat', function (req, res) {
     var userId = Number(req.query.userId)
     var qry = `SELECT t3.budgets, t1.name, t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
     FROM category AS t1
-    JOIN (SELECT (SELECT sum(amount) FROM spending WHERE user_id =${userId}) as total, category_id,sum(amount) as amount
+    LEFT JOIN (SELECT (SELECT sum(amount) FROM spending WHERE user_id =${userId}) as total, category_id,sum(amount) as amount
       FROM spending
       WHERE user_id=${userId} and YEAR(purchase_date) =${req.query.year} AND MONTH(purchase_date) = ${req.query.month} GROUP by category_id
     ) AS t2
@@ -36,7 +38,7 @@ module.exports = function (app) {
     ON t3.category_id=t1.id`
     executeQry(qry, res)
   })
-  // Get Spending for each category
+  // Get Year and Months
   app.get('/api/categorySpending', function (req, res) {
     var userId = Number(req.query.userId)
     var qry = `SELECT t1.name, t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
@@ -81,28 +83,39 @@ module.exports = function (app) {
   app.post('/api/addTransaction', function (req, res) {
     var qry = `INSERT into spending (category_id, amount,  purchase_date, description, user_id) values
     ((SELECT id FROM category WHERE name ='${req.body.category}'),
-		${req.body.amount}, '${req.body.purchaseDate}','${req.body.description}', ${req.body.userId})`
-    db.pool().query(qry, function (err, rows) {
-      if (err) console.log(err.message)
-      res.json({
-        message: 'success'
-      })
-    })
-  })
-  // Set budget
-  app.put('/api/setBudget', function (req, res) {
-    var amountStr = ''
-    var categoryListStr = ''
-    for (var i = 0; i < req.body.budget.length; i++) {
-      amountStr +=
-        `when category_id = ${req.body.budget[i][0]} then ${req.body.budget[i][1]} `
-      if (i !== 0) {
-        categoryListStr += `,`
-      }
-      categoryListStr += `${req.body.budget[i][0]}`
-    }
-    var qry = `UPDATE budget SET amount = CASE ${amountStr} END
-    WHERE category_id in (${categoryListStr}) AND user_id = ${req.body.userId}`
+    ${req.body.amount}, '${req.body.purchaseDate}','${req.body.description}', ${req.body.userId})`
     executeQry(qry, res)
+  })
+  // Set or Insert budget
+  app.put('/api/setBudget', function (req, res) {
+    var qry = `select * from budget where user_id = ${req.body.userId}`
+    db.pool().query(qry, function (err, rows) {
+      if (err) {
+        errMsg('server error', res)
+      }
+      // Insert budget for new user
+      if (rows.length === 0) {
+        var insertQry = `insert into budget (amount,category_id,user_id) values`
+        for (var i = 0; i < req.body.budget.length - 1; i++) {
+          insertQry += `(${req.body.budget[i][1]}, ${req.body.budget[i][0]},${req.body.userId}),`
+        }
+        insertQry += `(${req.body.budget[i][1]}, ${req.body.budget[req.body.budget.length - 1][0]},${req.body.userId})`
+        executeQry(insertQry, res)
+      } else { // Update budget for an existing user
+        var amountStr = ''
+        var categoryListStr = ''
+        for (var i = 0; i < req.body.budget.length; i++) {
+          amountStr +=
+            `when category_id = ${req.body.budget[i][0]} then ${req.body.budget[i][1]} `
+          if (i !== 0) {
+            categoryListStr += `,`
+          }
+          categoryListStr += `${req.body.budget[i][0]}`
+        }
+        var qry = `UPDATE budget SET amount = CASE ${amountStr} END
+        WHERE category_id in (${categoryListStr}) AND user_id = ${req.body.userId}`
+        executeQry(qry, res)
+      }
+    })
   })
 }

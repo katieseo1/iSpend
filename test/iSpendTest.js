@@ -4,23 +4,9 @@ var should = chai.should()
 var chaiHttp = require('chai-http')
 var db = require('../config/dbConfig.js')
 var connection = db.createPool(process.env.DB_TEST)
-var {
-  closeServer,
-  runServer,
-  app
-} = require('../server')
+var { closeServer, runServer, app } = require('../server')
 chai.use(chaiHttp)
-var budgetAry = [
-  [10, 8000],
-  [11, 220],
-  [12, 20],
-  [13, 30],
-  [14, 40],
-  [15, 60],
-  [16, 50],
-  [17, 70],
-  [18, 80]
-]
+var budgetAry = [[10, 8000], [11, 220], [12, 20], [13, 30], [14, 40], [15, 60], [16, 50], [17, 70], [18, 80]]
 var mockingData = {
   userId: 25,
   year: 2017,
@@ -34,19 +20,20 @@ var mockingData = {
   purchaseDate: '2017-03-02',
   description: 'tst'
 }
-  // strategy : Compare the state of database after making various API requests
+// strategy : Compare the state of database after making various API requests
 describe('iSpend API TEST', function () {
-  // Start a server
+// Start a server
   before(function () {
-    runServer(process.env.DB_TEST)
+    runServer(process.env.DB_TEST, process.env.TEST_PORT)
   })
   after(function () {
     closeServer(process.env.DB_TEST)
     connection.end()
   })
-    // 1.Get back all results returned by by GET requests
-    // 2.Check if it has right status
-    // 3.Compare the number of results with the records in the db
+
+// 1.Get back all results returned by by GET requests
+// 2.Check if it has right status
+// 3.Compare the number of results with the records in the db
   describe('GET endpoint', function () {
     it('/categorySpendingStat : should return category spending data', function () {
       return chai.request(app).get(`/api/categorySpendingStat?userId=${mockingData.userId}&&year=${mockingData.year}&month=${mockingData.month}`).then(function (res) {
@@ -137,14 +124,14 @@ describe('iSpend API TEST', function () {
       })
     })
   })
-    //* ******************** PUT ENDPOINT **************//
+//* ******************** PUT ENDPOINT **************//
   describe('PUT endpoint', function () {
-    it('should add a transaction', function () {
+    it('should set budgets', function () {
+      this.timeout(5000)
       return chai.request(app).put('/api/setBudget').send(mockingData.budgetList).then(function (res) {
         res.should.be.json
-        res.should.have.status(200)
         var qry = `SELECT amount, category_id from budget
-  Where user_id = ${mockingData.userId} order by category_id`
+          WHERE user_id = ${mockingData.userId} order by category_id`
         connection.query(qry, function (err, rows) {
           if (err) console.log(err.message)
           for (var i = 0; i < rows.length; i++) {
@@ -155,9 +142,10 @@ describe('iSpend API TEST', function () {
       })
     })
   })
-    //* ******************** POST ENDPOINT **************//
+//* ******************** POST ENDPOINT **************//
   describe('POST endpoint', function () {
     it('should add a transaction', function () {
+      this.timeout(5000)
       var transaction = {
         category: mockingData.category,
         amount: mockingData.amount,
@@ -165,17 +153,17 @@ describe('iSpend API TEST', function () {
         description: mockingData.description,
         userId: mockingData.userId
       }
-      return chai.request(app).post('/api/addTransaction').send(transaction).then(function (res) {
-        res.should.be.json
-        res.should.have.status(200)
-        var qry = `select count(*) from spending
-         WHERE category_id = (select id from category where name ='${transaction.category}') and
-         amount = ${transaction.amount} and
-         purchase_date = '${transaction.purchaseDate}' and
-         description = '${transaction.description}' and
-         user_id =  ${transaction.userId}`
-        connection.query(qry, function (err, rows) {
-          if (err) console.log(err.message)
+      var qry = `select count(*) from spending
+       WHERE category_id = (select id from category where name ='${transaction.category}') and
+       amount = ${transaction.amount} and
+       purchase_date = '${transaction.purchaseDate}' and
+       description = '${transaction.description}' and
+       user_id =  ${transaction.userId}`
+      connection.query(qry, function (err, rows) {
+        if (err) console.log(err.message)
+        return chai.request(app).post('/api/addTransaction').send(transaction).then(function (res) {
+          res.should.be.json
+          res.should.have.status(200)
           rows.count.should.have.length.of.at.least(1)
         })
       })

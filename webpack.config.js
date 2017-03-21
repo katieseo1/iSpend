@@ -18,9 +18,9 @@ module.exports = {
       loader: 'file-loader?name=public/img/[name].[ext]'
     }, {
       test: /\.(woff|woff2|eot|ttf|svg)$/,
-      loader: 'url-loader?limit=100000?name=public/css/[name].[ext]'
+      loader: 'url-loader?limit=100000&name=public/img/[name].[ext]'
     }, {
-      test: /\.css$/,
+      test: /\.(css|map)$/,
       loader: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         loader: 'css-loader'

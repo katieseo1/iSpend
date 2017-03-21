@@ -59,7 +59,20 @@ function setUpBarChart (chartData, barChartId) {
   })
 }
 
-function setUpPieChart (data, pieChartId) {
+function extractNonZero (data) {
+  var nonZeroData = []
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].value !== 0) {
+      nonZeroData.push({
+        label: data[i].label,
+        value: data[i].value
+      })
+    }
+  }
+  return nonZeroData
+}
+function setUpPieChart (chartData, pieChartId) {
+  var data = extractNonZero(chartData)
   d3.select(pieChartId).select('svg').remove()
   var width = 300
   var height = 300
