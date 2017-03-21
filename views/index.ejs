@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<link href='/css/index.css' rel='stylesheet'>
-	<title>iSpend</title>
+  <link href='/css/index.css' rel='stylesheet'>
+  <title>iSpend</title>
 </head>
 <body>
-	<div class='container'>
-		<div class='row'>
-			<div class='col-lg-6 intro'>
-				<div class='logo'>
-					<a href='\'><img alt='logo' src='/assets/logo.png' alt ='logo image'></a>
-				</div>
-				<div class='landing'>
-				<label  for = 'title' class='title'>Track your spending</label>
-			</div>
-				<div class='landing-text'>
-					<label class='landing-message' for ='message'>iSpend allows you to check spending and set up budget easily. Signup NOW to control your finance!</label>
-					<button role='signup' class='btn btn-primary btn-lg signup-btn' onClick="javascript:location.href='/signup'" type='button'>Sign up</button>
-				</div>
-			</div>
-			<div class='col-lg-6'>
-				<!-- LOGIN FORM -->
-				<div class='panel panel-default panel-background'>
-					<div class='panel-body transparent panel-background'>
-						<div class='login-header'>
-							<label lable for = 'login title' class='login-title'>Login</label>
-
-							<%if (message.length > 0) { %>
-							<div class='alert alert-danger'>
-								<%= message %>
-							</div><%} %>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg-6 intro'>
+        <div class='logo'>
+          <a href='/'><img alt='logo image' src='/assets/logo.png'></a>
+        </div>
+        <div class='landing'>
+          <label class='title' for='title'>Track your spending</label>
+        </div>
+        <div class='landing-text'>
+          <label class='landing-message' for='message'>iSpend allows you to check spending and set up budget easily. Signup NOW to control your finance!</label> <button class='btn btn-primary btn-lg signup-btn' onclick="javascript:location.href='/signup'" role='signup' type='button'>Sign up</button>
+        </div>
+      </div>
+      <div class='col-lg-6'>
+        <!-- LOGIN FORM -->
+        <div class='panel panel-default panel-background'>
+          <div class='panel-body transparent panel-background'>
+            <div class='login-header'>
+              <label class='login-title' for='login title'>Login</label> <%if (message.length > 0) { %>
+              <div class='alert alert-danger'>
+                <%= message %>
+              </div><%} %>
 							<form action='/login'  id='loginForm' method='post' name='login-form'>
 								<div class='form-group'>
 									<label for = 'email'>Email/username</label>
@@ -42,11 +39,11 @@
 								<button class='btn btn-primary btn-lg pull-right login-btn' type='submit' role='button'>Login</button>
 								<label for ='sign up'>Need an account? <a href='/signup' class='white'>signup</a></label>
 							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

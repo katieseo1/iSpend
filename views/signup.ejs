@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<link href='/css/index.css' rel='stylesheet'>
-	<title>iSpend</title>
+  <link href='/css/index.css' rel='stylesheet'>
+  <title>iSpend</title>
 </head>
 <body>
-	<div class='container'>
-		<div class='col-sm-6 col-sm-offset-3'>
-			<center>
-				<a href='/'><img class='logo' src='/assets/logo.png'></a>
-			</center>
-			<div class='panel panel-default panel-background'>
-				<div class='panel-body transparent panel-background'>
-					<div class='signup-header'>
-						<div class='form-title text-center'></div>
-						<h2><label for='signup'>Signup</label></h2><%if (message.length > 0) { %>
-						<div class='alert alert-danger'>
-							<%= message %>
-						</div><%} %>
-						<form action='/signup' id='signup-form' method='post' name='signup-form'>
-							<div class='form-group'>
-								<label for='email/username'>Email/Username</label> <input aria-label='email' class='form-control' name='email' required='' type='text'>
-							</div>
-							<div class='form-group'>
-								<label for='firstname'>First Name</label> <input aria-label='first name' class='form-control' name='firstname' required='' type='text'>
-							</div>
-							<div class='form-group'>
-								<label for="lastname'">Last Name</label> <input aria-label='last name' class='form-control' name='lastname' required='' type='text'>
-							</div>
-							<div class='form-group'>
-								<label for="password'">Password</label> <input aria-label='password' class='form-control' name='password' required='' type='password'>
-							</div>
-							<div class='form-group'>
-								<label for="confrim">Confirm Password</label> <input aria-label='confirm password' class='form-control' name='confirmPassword' required='' type='password'>
-							</div>
-							<div class='form-group'>
-								<div class='col-md-9 col-md-offset-3'>
-									<div id='messages'></div>
-								</div>
-							</div><button class='btn btn-primary pull-right btn' disabled='disabled' role='signup' type='submit'>Signup</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src='/js/signup.js'>
-	</script>
+  <div class='container'>
+    <div class='col-sm-6 col-sm-offset-3'>
+      <center>
+        <a href='/'><img class='logo' src='/assets/logo.png'></a>
+      </center>
+      <div class='panel panel-default panel-background'>
+        <div class='panel-body transparent panel-background'>
+          <div class='signup-header'>
+            <div class='form-title text-center'></div>
+            <h2><label for='signup'>Signup</label></h2><%if (message.length > 0) { %>
+            <div class='alert alert-danger'>
+              <%= message %>
+            </div><%} %>
+            <form action='/signup' id='signup-form' method='post' name='signup-form'>
+              <div class='form-group'>
+                <label for='email/username'>Email/Username</label> <input aria-label='email' class='form-control' name='email' required='' type='text'>
+              </div>
+              <div class='form-group'>
+                <label for='firstname'>First Name</label> <input aria-label='first name' class='form-control' name='firstname' required='' type='text'>
+              </div>
+              <div class='form-group'>
+                <label for="lastname'">Last Name</label> <input aria-label='last name' class='form-control' name='lastname' required='' type='text'>
+              </div>
+              <div class='form-group'>
+                <label for="password'">Password</label> <input aria-label='password' class='form-control' name='password' required='' type='password'>
+              </div>
+              <div class='form-group'>
+                <label for="confrim">Confirm Password</label> <input aria-label='confirm password' class='form-control' name='confirmPassword' required='' type='password'>
+              </div>
+              <div class='form-group'>
+                <div class='col-md-9 col-md-offset-3'>
+                  <div id='messages'></div>
+                </div>
+              </div><button class='btn btn-primary pull-right btn' disabled='disabled' role='signup' type='submit'>Signup</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='/js/signup.js'>
+  </script>
 </body>
 </html>

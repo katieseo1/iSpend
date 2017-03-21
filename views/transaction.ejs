@@ -1,96 +1,99 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<title>iSpend</title>
-	<link href='/css/transaction.css' rel='stylesheet'>
+  <title>iSpend</title>
+  <link href='/css/transaction.css' rel='stylesheet'>
 </head>
 <body class='container'>
-	<header>
-		<%include header.ejs %>
-	</header>
-	<div class='container transaction-container'>
-		<div class='row'>
-			<div class='col-lg-10'>
-				<div class='panel panel-default '>
-					<div class='panel-heading'>
-						<div class='panel-title text-center'>
-							<label for ='Add transaction'> <h3> Add transaction </h3><label>
-						</div>
-					</div>
-					<div class='panel-body'>
-						<form class='form-horizontal' id='addTransactionForm' name='addTransactionForm'>
-							<div class='form-group'>
-								<label for='Category' class='control-label col-sm-2'>Category</label>
-								<div class='col-sm-10'>
-									<div class='dropdown'>
-										<button class='btn btn-default dropdown-toggle btn-block btn-primary' data-toggle='dropdown' id='menu1' type='button'>Select <span class='caret'></span></button>
-										<ul aria-labelledby='menu1' class='dropdown-menu' role='menu'>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Entertainment</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Education</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Home</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Health</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Dining</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Groceries</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Travel</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>Car</a>
-											</li>
-											<li role='presentation'>
-												<a href='#' role='menuitem' tabindex='-1'>etc</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label class='control-label col-sm-2' for ='purchase date'>Date</label>
-								<div class='col-sm-10'>
-									<div class='input-group date date-picker '>
-										<input aria-label='purchase date input' class='form-control' id='purchaseDate' name='purchaseDate' placeholder='YYYY-MM-DD'> <span class='input-group-addon'><span class='glyphicon glyphicon-calendar open-datetimepicker'></span></span>
-									</div>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='amount' class='control-label col-sm-2'>Amount:</label>
-								<div class='col-sm-10'>
-									<input aria-label='amount' class= 'form-control' id='amount' name='amount' placeholder='Amount'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<label for='Description' class='control-label col-sm-2'>Description:</label>
-								<div class='col-sm-10'>
-									<input aria-label='description' class='form-control' id='description' placeholder='description'>
-								</div>
-							</div>
-							<div class='form-group'>
-								<div class='col-sm-offset-2 col-sm-10'>
-									<button role='addTransaction' class='btn btn-default btn-success pull-right' disabled='disabled' type='submit'>Submit</button>
-								</div>
-							</div>
-							<div>
-                <label for 'message' id='messageTransaction'></label>
+  <header>
+    <%include header.ejs %>
+  </header>
+  <div class='container transaction-container'>
+    <div class='row'>
+      <div class='col-lg-10'>
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <div class='panel-title text-center'>
+              <label for='Add transaction'></label>
+              <h3><label for='Add transaction'>Add transaction</label></h3><label for='Add transaction'><label></label></label>
+            </div>
+          </div>
+          <div class='panel-body'>
+            <label for='Add transaction'></label>
+            <form class='form-horizontal' id='addTransactionForm' name='addTransactionForm'>
+              <label for='Add transaction'></label>
+              <div class='form-group'>
+               <label  for='Add transaction' class='control-label col-sm-2' for='Category'>Category</label>
+                <div class='col-sm-10'>
+                  <div class='dropdown'>
+                    <button class='btn btn-default dropdown-toggle btn-block btn-primary' data-toggle='dropdown' id='menu1' type='button'>Select <span class='caret'></span></button>
+                    <ul aria-labelledby='menu1' class='dropdown-menu' role='menu'>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Entertainment</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Education</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Home</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Health</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Dining</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Groceries</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Travel</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>Car</a>
+                      </li>
+                      <li role='presentation'>
+                        <a href='#' role='menuitem' tabindex='-1'>etc</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src='/js/transaction.js'>
-	</script>
+              <div class='form-group'>
+                <label class='control-label col-sm-2' for='purchase date'>Date</label>
+                <div class='col-sm-10'>
+                  <div class='input-group date date-picker'>
+                    <input aria-label='purchase date input' class='form-control' id='purchaseDate' name='purchaseDate' placeholder='YYYY-MM-DD'> <span class='input-group-addon'><span class='glyphicon glyphicon-calendar open-datetimepicker'></span></span>
+                  </div>
+                </div>
+              </div>
+              <div class='form-group'>
+                <label class='control-label col-sm-2' for='amount'>Amount:</label>
+                <div class='col-sm-10'>
+                  <input aria-label='amount' class='form-control' id='amount' name='amount' placeholder='Amount'>
+                </div>
+              </div>
+              <div class='form-group'>
+                <label class='control-label col-sm-2' for='Description'>Description:</label>
+                <div class='col-sm-10'>
+                  <input aria-label='description' class='form-control' id='description' placeholder='description'>
+                </div>
+              </div>
+              <div class='form-group'>
+                <div class='col-sm-offset-2 col-sm-10'>
+                  <button class='btn btn-default btn-success pull-right' disabled='disabled' role='addTransaction' type='submit'>Submit</button>
+                </div>
+              </div>
+              <div>
+                <label for='message' id='messageTransaction'></label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='/js/transaction.js'>
+  </script>
 </body>
 </html>
