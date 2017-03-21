@@ -5,6 +5,7 @@ require('bootstrap')
 require('bs-validator')
 require('bootbox')
 var bootbox = require('bootbox')
+var validation = require('./validator')
 
 function setBudgetRequest (data) {
   $.ajax({
@@ -66,6 +67,8 @@ function handleSetBudget () {
     setBudget()
   })
 }
+
 $(function () {
   handleSetBudget()
+  validation.setBudgetForm()
 })

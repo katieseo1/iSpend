@@ -32,13 +32,9 @@
 										<td data-id='<%=data.result[i].id %>'><%= data.result[i].name  %></td>
 										<td><input aria-label='budget' name='newBudget' class='newBudget form-control' data-id='<%=data.result[i].id %>' min='1' name='budget' type='number'></td>
 									</tr><%} %>
+									<div id='messagesBudget'></div>
 								</tbody>
 							</table><button role='set budget'class='btn btn-success pull-right' type='submit'>Submit</button>
-							<div class='form-group'>
-								<div class='col-md-9 col-md-offset-3'>
-									<div id='messagesBudget'></div>
-								</div>
-							</div>
 						</form>
 					</div>
 				</div>

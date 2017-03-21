@@ -1,5 +1,6 @@
 global.jQuery = $ = require('jquery')
 global.d3 = d3 = require('d3/index')
+require('normalize-css');
 require('../node_modules/bootstrap/dist/css/bootstrap.css')
 require('../css/custom.css')
 require('../css/categorySpending.css')
@@ -52,7 +53,6 @@ function getCategorySpending (date, categorySpendingTable, dounutChart) {
 }
 
 function getSpendingVsBudget (date) {
-  console.log(date)
   $.ajax({
     url: 'spendingVsBudget/',
     method: 'GET',
@@ -71,11 +71,9 @@ function getSpendingVsBudget (date) {
 }
 
 function formatDate (date) {
-  console.log(date)
   var monthName = date.toLocaleString('en-us', {
     month: 'long'
   })
-//  monthName.split(" ")
   return {
     month:   monthName.split(" ")[0],
     mm: date.getMonth() + 1,
@@ -90,7 +88,6 @@ $(function () {
     'class': 'display'
   })
   var pie = d3.pie()
-  console.log(formatDate(today));
   getCategorySpending(formatDate(today), categorySpendingTable, pie)
   getSpendingVsBudget(formatDate(today))
   $('.btnViewSpendingHistory').on('click', function (event) {
@@ -100,9 +97,6 @@ $(function () {
     var monthName = $(this).text().split(" ")[0]
     var year = $(this).attr("data-year")
     var month = $(this).attr("data-month")
-    console.log(monthName)
-    console.log(year)
-    console.log(month)
     getCategorySpending({month:monthName, mm:month, yy:year}, categorySpendingTable, pie)
     getSpendingVsBudget({month:monthName, mm:month, yy:year})
   })

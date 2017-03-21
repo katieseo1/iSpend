@@ -1,4 +1,5 @@
 global.jQuery = $ = require('jquery')
+require('normalize-css');
 require('../node_modules/bootstrap/dist/css/bootstrap.css')
 require('../css/categorySpending.css')
 require('../node_modules/datatables.net-bs/css/datatables.bootstrap.css')

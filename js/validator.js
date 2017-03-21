@@ -100,5 +100,24 @@ var signUpForm = function () {
     }
   })
 }
+var setBudgetForm = function() {
+  $('#setBudget').bootstrapValidator({
+    container: '#messagesBudget',
+    fields: {
+      newBudget: {
+        validators: {
+          numeric: {
+            message: 'Please enter amount'
+          }
+        }
+      }
+    }
+  }).on('success.field.fv', function(e, data) {
+    if (data.fv.getInvalidFields().length > 0) {
+      data.fv.disableSubmitButtons(true);
+    }
+  });
+}
 exports.transactionForm = transactionForm
 exports.signUpForm = signUpForm
+exports.setBudgetForm = setBudgetForm
