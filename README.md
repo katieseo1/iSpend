@@ -1,5 +1,5 @@
 # iSpend
-iSpend is a user friendly personal financial application to track of daily spending and budget by categories.
+iSpend is a user friendly personal financial application to track of daily spending and budget by category.
 
 ![Screenshots](https://github.com/katieseo1/iSpend/blob/master/screenShot/responsive.png)
 
