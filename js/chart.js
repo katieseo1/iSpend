@@ -93,7 +93,7 @@ function setUpPieChart (chartData, pieChartId) {
   .attr('width', width)
   .attr('height', height)
   .append('g')
-  .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')') // Moving the center point. 1/2 the width and 1/2 the height
+  .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')')
   var g = svg.selectAll('arc')
   .data(pie)
   .enter()

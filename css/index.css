@@ -100,9 +100,7 @@ body {
 	}
 	.landing-text .landing-message {
 		font-size: 1.5em;
-
 	}
-
 	.intro h2, .signup-btn {
 		display: block;
 		margin: 0;
@@ -190,7 +188,6 @@ body {
 		background-position: 40px 0;
 	}
 }
-
 .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label{
 	color:white !important
 }
