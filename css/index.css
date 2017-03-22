@@ -39,7 +39,7 @@ body {
 	font-size: 2.0em;
   font-weight: 300;
 	color: #fff;
-	margin: 30px 0 30px 0;
+	margin: 20px 0 30px 0;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
 	line-height: 120%;
 	margin: auto;
@@ -109,7 +109,7 @@ body {
 }
 @media (min-width: 768px) {
 	.intro {
-		margin-top: 180px;
+		margin-top: 130px;
 	}
 	.logo img {
 		width: 200px;
@@ -147,8 +147,8 @@ body {
 		height: 55px
 	}
 	.login-header {
-		margin: 180px 0 100px;
-		padding: 50px;
+		margin: 190px 0 100px;
+		padding: 30px;
 		background: rgba(255, 255, 255, 0.2);
 		border-radius: 4px;
 	}
