@@ -6865,6 +6865,9 @@ body {
 	margin-bottom: 50px;
 }
 @media (min-width: 768px) {
+	.intro {
+		margin-top: 180px;
+	}
 	.logo img {
 		width: 200px;
 		height: 55px
