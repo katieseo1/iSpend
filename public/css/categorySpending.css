@@ -6808,9 +6808,6 @@ button.close {
 .budgeting {
   color: #f69525;
 }
-.category-btn{
-  color:green
-}
 .category-container{
   margin-top:100px
 }
@@ -6824,6 +6821,9 @@ button.close {
 }
 .barchart-panel{
   margin-top:48px
+}
+.dropdown-toggle{
+  margin-bottom:50px
 }
 table.dataTable {
   clear: both;

@@ -6808,9 +6808,6 @@ button.close {
 .budgeting {
   color: #f69525;
 }
-.category-btn{
-  color:green
-}
 .category-container{
   margin-top:100px
 }
@@ -6824,6 +6821,9 @@ button.close {
 }
 .barchart-panel{
   margin-top:48px
+}
+.dropdown-toggle{
+  margin-bottom:50px
 }
 table.dataTable {
   clear: both;
@@ -7010,15 +7010,15 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
   padding-right: 0;
 }
 .transaction-container{
-  margin-top: 100px;
+  margin-top: 50px;
 }
 @media (min-width: 768px) {
   .transaction-container{
-    margin-top: 150px;
+    margin-top: 70px;
   }
 }
 @media (min-width: 1200px) {
   .transaction-container{
-    margin-top: 200px;
+    margin-top: 120px;
   }
 }

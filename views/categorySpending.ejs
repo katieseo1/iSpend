@@ -18,7 +18,7 @@
           </div>
           <div class='col-md-6 year-menu'>
             <div class='dropdown'>
-              <button class='btn pull-btn-default dropdown-toggle category-btn' data-toggle='dropdown' id='menu1' type='button'>Select Other Month<span class='caret'></span></button>
+              <button class='btn pull-btn-default btn-primary dropdown-toggle' data-toggle='dropdown' id='menu1' type='button'>Select Other Month<span class='caret'></span></button>
               <ul aria-labelledby='menu1' class='dropdown-menu' role='menu'>
                 <%var month = ['January', 'February', 'March', 'April', 'May','June','July', 'August', 'September', 'October', 'November', 'December'];%><%var monthYear=''; %><%for(var i=0; i < data.result.length; i++) {
                                      %><%monthYear = month[data.result[i].month-1] +' '+data.result[i].year;
@@ -35,7 +35,8 @@
         <div class='col-md-6'>
           <div class='panel panel-default'>
             <div class='panel-heading'>
-              <label class='panel-title spending-table' for='Spending category'><i class='fa fa-long-arrow-right fa-fw'></i> Spending Categories</label>
+              <label class='panel-title spending-table' for='Spending category'>
+                <i class='fa fa-long-arrow-right fa-fw'></i> Spending Categories</label>
             </div>
             <div class='panel-body'>
               <div>
@@ -48,7 +49,9 @@
           <div class='panel panel-default'>
             <div class='panel-heading'>
               <div class='panel-title spending-chart'>
-                <i class='fa fa-long-arrow-right fa-fw'></i> <label class='budgeting' for='budget'>Budget</label> vs <label class='spending' for='spending'>Spending</label>
+                <i class='fa fa-long-arrow-right fa-fw'></i>
+                <label class='budgeting' for='budget'>Budget</label> vs
+                <label class='spending' for='spending'>Spending</label>
               </div>
             </div>
             <div class='panel-body barchart-panel'>
@@ -62,7 +65,8 @@
           <div class='panel panel-default'>
             <div class='panel-heading'>
               <div class='panel-title'>
-                <i class='fa fa-long-arrow-right fa-fw'></i> <label for='Spending Table'>Spending</label>
+                <i class='fa fa-long-arrow-right fa-fw'></i>
+                <label for='Spending Table'>Spending</label>
               </div>
             </div>
             <div class='panel-body'>

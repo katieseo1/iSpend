@@ -10,8 +10,8 @@
   </header>
   <div class='container budget-container'>
     <div class='row'>
-      <div class='col-lg-10'>
-        <div class='panel panel-default'>
+      <div class='col-lg-12'>
+        <div class='panel panel-default text-center'>
           <div class='panel-heading'>
             <div class='panel-title text-center'>
               <h3><label for='budgeting'>Budgeting</label></h3>
@@ -31,7 +31,7 @@
                   <%for(var i=0; i < data.result.length; i++) { %>
                   <tr>
                     <td data-id='<%=data.result[i].id %>'><%= data.result[i].name  %></td>
-                    <td><input aria-label='budget' class='newBudget form-control' data-id='<%=data.result[i].id %>' min='1' name='budget' type='number'></td>
+                    <td><input aria-label='budget' class='newBudget form-control' data-id='<%=data.result[i].id %>' min='1' name='budget' type='number' placeholder='0'></td>
                   </tr><%} %>
                 </tbody>
               </table><button class='btn btn-success pull-right' role='set budget' type='submit'>Submit</button>

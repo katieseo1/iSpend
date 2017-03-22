@@ -25,9 +25,6 @@
 .budgeting {
   color: #f69525;
 }
-.category-btn{
-  color:green
-}
 .category-container{
   margin-top:100px
 }
@@ -41,4 +38,7 @@
 }
 .barchart-panel{
   margin-top:48px
+}
+.dropdown-toggle{
+  margin-bottom:50px
 }
