@@ -30,7 +30,7 @@
                 <tbody>
                   <%for(var i=0; i < data.result.length; i++) { %>
                   <tr>
-                    <td data-id='<%=data.result[i].id %>'><%= data.result[i].name  %></td>
+                    <td align='left' data-id='<%=data.result[i].id %>'><%= data.result[i].name  %></td>
                     <td><input aria-label='budget' class='newBudget form-control' data-id='<%=data.result[i].id %>' min='1' name='budget' type='number' placeholder='0'></td>
                   </tr><%} %>
                 </tbody>

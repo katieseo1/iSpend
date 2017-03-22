@@ -46,8 +46,6 @@ function validateUserInput (input) {
     bootbox.alert('invalid date format (YYYY-MM-DD)')
   } else if (!moneyRegex.test(input.amount)) {
     bootbox.alert('Invalid amount')
-  } else if (input.category === 'Select') {
-    bootbox.alert('please select categroy')
   } else if (!input.purchaseDate) {
     bootbox.alert('Please provide input')
   } else if (!input.amount) {
@@ -73,14 +71,16 @@ function handleAddTransaction () {
 $(function () {
   $('.date-picker').datepicker({
     format: 'yyyy-mm-dd',
-    orientation: 'bottom auto'
+    orientation: 'bottom right auto'
   })
   $('.dropdown-menu li a').click(function (e) {
     $('#menu1').text($(this).text())
   })
+
+
   $('.open-datetimepicker').click(function (event) {
     event.preventDefault()
-    $('.date-picker').click()
+    $('.date-picker').datepicker('show')
   })
   handleAddTransaction()
   validation.transactionForm()
