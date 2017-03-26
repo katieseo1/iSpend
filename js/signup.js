@@ -1,5 +1,5 @@
 global.jQuery = $ = require('jquery')
-require('normalize-css');
+require('normalize-css')
 require('../node_modules/bootstrap/dist/css/bootstrap.css')
 require('bootstrap')
 require('bs-validator')

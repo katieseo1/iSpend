@@ -100,7 +100,7 @@ var signUpForm = function () {
     }
   })
 }
-var setBudgetForm = function() {
+var setBudgetForm = function () {
   $('#setBudget').bootstrapValidator({
     container: '#messagesBudget',
     fields: {
@@ -112,11 +112,11 @@ var setBudgetForm = function() {
         }
       }
     }
-  }).on('success.field.fv', function(e, data) {
+  }).on('success.field.fv', function (e, data) {
     if (data.fv.getInvalidFields().length > 0) {
-      data.fv.disableSubmitButtons(true);
+      data.fv.disableSubmitButtons(true)
     }
-  });
+  })
 }
 exports.transactionForm = transactionForm
 exports.signUpForm = signUpForm

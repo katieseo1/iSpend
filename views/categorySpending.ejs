@@ -71,12 +71,13 @@
               </div>
             </div>
             <div class='panel-body'>
-              <table cellspacing='0' class='table table-striped' id='categorySpendingTable' width='100%'>
+              <table cellspacing='0' class='table table-striped category-data' id='categorySpendingTable' width='100%'>
                 <thead>
                   <tr>
                     <th scope='col'></th>
                     <th scope='col'>Spending</th>
                     <th scope='col'>Budget</th>
+                    <th scope='col'>Detail</th>
                   </tr>
                 </thead>
               </table>
@@ -84,6 +85,34 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal -->
+  <div class='modal fade' id='spending' role='dialog'>
+    <div class='modal-dialog'>
+
+      <!-- Modal content-->
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type='button' class='close' data-dismiss='modal'>&times;</button>
+          <lable for 'spending Detail' id='spendingDetail' class='modal-title'>Spending</label>
+        </div>
+        <div class='modal-body'>
+          <table cellspacing='0' class='table table-striped category-data' id='specificSpendingTable' width='100%'>
+            <thead>
+              <tr>
+                <th scope='col'>Date</th>
+                <th scope='col'>Amount</th>
+                <th scope='col'>Description</th>
+              </tr>
+            </thead>
+          </table>        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
       <script src='/js/categorySpending.js'>
       </script>
     </div>

@@ -1,4 +1,5 @@
 global.jQuery = $ = require('jquery')
+require('normalize-css')
 require('../node_modules/bootstrap/dist/css/bootstrap.css')
 require('../css/custom.css')
 require('bootstrap')
@@ -7,6 +8,31 @@ require('bootbox')
 var bootbox = require('bootbox')
 var validation = require('./validator')
 
+
+function displayMessage () {
+  bootbox.confirm({
+    message: "Successfully added",
+    buttons: {
+        confirm: {
+            label: 'Return to your Spending',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Reset Budget',
+            className: 'btn-primary'
+        }
+    },
+    callback: function (result) {
+      if (result ===true){
+        window.location.href = '/categorySpending';
+      }
+      else{
+        document.getElementById('setBudget').reset()
+      }
+    }
+  });
+}
+
 function setBudgetRequest (data) {
   $.ajax({
     method: 'PUT',
@@ -14,13 +40,7 @@ function setBudgetRequest (data) {
     data: JSON.stringify(data),
     async: true,
     success: function (data) {
-      bootbox.alert({
-        size: 'small',
-        message: 'Done budgeting',
-        callback: function () {
-          window.location.reload()
-        }
-      })
+      displayMessage()
     },
     dataType: 'json',
     contentType: 'application/json'

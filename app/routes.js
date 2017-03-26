@@ -1,6 +1,6 @@
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
-const apiURL = 'http://iSpend.org/api/'
+const apiURL = 'http://localhost:3000/api/'
 module.exports = function (app, passport) {
   // Display error message
   function errMsg (res) {
@@ -12,6 +12,19 @@ module.exports = function (app, passport) {
   app.get('/', function (req, res) {
     res.render('index.ejs', {
       message: req.flash('loginMessage')
+    })
+  })
+
+  // Get spending for a specific category
+  app.get('/sepecificSpending', isLoggedIn, function (req, res) {
+    req.body.userId = req.user.id
+    fetch(apiURL +
+      `sepecificSpending?userId=${req.user.id}&category=${req.query.inputData.category}&year=${req.query.inputData.year}&month=${req.query.inputData.month}`)
+    .then(function (res) {
+      errMsg(res)
+      return res.json()
+    }).then(function (data) {
+      res.json(data)
     })
   })
   // Category Spending page

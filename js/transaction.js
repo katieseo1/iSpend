@@ -1,5 +1,5 @@
 global.jQuery = $ = require('jquery')
-require('normalize-css');
+require('normalize-css')
 require('../node_modules/bootstrap/dist/css/bootstrap.css')
 require('../css/categorySpending.css')
 require('../node_modules/datatables.net-bs/css/datatables.bootstrap.css')
@@ -12,12 +12,25 @@ require('bootstrap-datepicker')
 var bootbox = require('bootbox')
 var validation = require('./validator')
 
-function reset (data) {
-  bootbox.alert({
-    size: 'small',
-    message: 'Added transaction ',
-    callback: function () {
-      window.location.reload()
+function displayMessage () {
+  bootbox.confirm({
+    message: 'Successfully added',
+    buttons: {
+      confirm: {
+        label: 'Back to Spending page',
+        className: 'btn-success'
+      },
+      cancel: {
+        label: 'Add more transactions',
+        className: 'btn-primary'
+      }
+    },
+    callback: function (result) {
+      if (result === true) {
+        window.location.href = '/categorySpending'
+      } else {
+        document.getElementById('addTransactionForm').reset()
+      }
     }
   })
 }
@@ -30,7 +43,7 @@ function addTransaction (transaction) {
     dataType: 'json',
     contentType: 'application/json',
     success: function (data) {
-      reset(data)
+      displayMessage()
     },
     error: function (error) {
       console.log(error)
@@ -71,17 +84,17 @@ function handleAddTransaction () {
 $(function () {
   $('.date-picker').datepicker({
     format: 'yyyy-mm-dd',
+    atuoclose: true,
     orientation: 'bottom right auto'
   })
   $('.dropdown-menu li a').click(function (e) {
     $('#menu1').text($(this).text())
   })
-
-
   $('.open-datetimepicker').click(function (event) {
     event.preventDefault()
     $('.date-picker').datepicker('show')
   })
+
   handleAddTransaction()
   validation.transactionForm()
 })

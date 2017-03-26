@@ -26,9 +26,9 @@ module.exports = function (app) {
   // category Spending Stat
   app.get('/api/categorySpendingStat', function (req, res) {
     var userId = Number(req.query.userId)
-    var qry = `SELECT t3.budgets, t1.name, t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
+    var qry = `SELECT t3.budgets, t1.name, t2.purchase_date, t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
     FROM category AS t1
-    LEFT JOIN (SELECT (SELECT sum(amount) FROM spending WHERE user_id =${userId}) as total, category_id,sum(amount) as amount
+    LEFT JOIN (SELECT (SELECT sum(amount) FROM spending WHERE user_id =${userId}) as total, purchase_date,category_id,sum(amount) as amount
       FROM spending
       WHERE user_id=${userId} and YEAR(purchase_date) =${req.query.year} AND MONTH(purchase_date) = ${req.query.month} GROUP by category_id
     ) AS t2
@@ -41,9 +41,9 @@ module.exports = function (app) {
   // Get Year and Months
   app.get('/api/categorySpending', function (req, res) {
     var userId = Number(req.query.userId)
-    var qry = `SELECT t1.name, t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
+    var qry = `SELECT t1.name, t2.purchase_date,t2.amount,(t2.amount/t2.total*100) as percentage, t1.id as category_id
     FROM category AS t1 JOIN (SELECT (SELECT sum(amount)
-    FROM spending WHERE user_id = ${userId}) as total, category_id, sum(amount) as amount
+    FROM spending WHERE user_id = ${userId}) as total, category_id, sum(amount) as amount, purchase_date
     FROM spending WHERE user_id = ${userId}
     GROUP by category_id)
     AS t2 ON t1.id = t2.category_id`
@@ -61,6 +61,14 @@ module.exports = function (app) {
     FROM spending
     WHERE user_id=${userId}
     GROUP by Year(purchase_date), month(purchase_date)`
+    executeQry(qry, res)
+  })
+  // Get spending for a specific category
+  app.get('/api/sepecificSpending', function (req, res) {
+    var qry = `SELECT * from spending
+    WHERE user_id = ${req.query.userId} and Year(purchase_date) = ${req.query.year}
+     and month(purchase_date) = ${req.query.month}
+     and category_id = (select id from category where name ='${req.query.category}' )`
     executeQry(qry, res)
   })
   // Get list of category for budget
