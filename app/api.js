@@ -69,6 +69,7 @@ module.exports = function (app) {
     WHERE user_id = ${req.query.userId} and Year(purchase_date) = ${req.query.year}
      and month(purchase_date) = ${req.query.month}
      and category_id = (select id from category where name ='${req.query.category}' )`
+     console.log(qry)
     executeQry(qry, res)
   })
   // Get list of category for budget

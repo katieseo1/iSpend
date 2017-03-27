@@ -97,6 +97,24 @@ describe('iSpend API TEST', function () {
         })
       })
     })
+
+    it('/sepecificSpending : should return a list of year and month for spending', function () {
+      return chai.request(app).get(`/api/sepecificSpending?userId=${mockingData.userId}&category=${mockingData.category}&year=${mockingData.year}&month=${mockingData.month}
+        `)
+      .then(function (res) {
+        res.should.have.status(200)
+        res.body.result.should.have.length.of.at.least(1)
+          var qry = `SELECT * from spending
+          WHERE user_id = ${mockingData.userId} and Year(purchase_date) = ${mockingData.year}
+           and month(purchase_date) = ${mockingData.month}
+           and category_id = (select id from category where name ='${mockingData.category}' )`
+        connection.query(qry, res, function (err, rows) {
+          if (err) console.log(err.message)
+          res.body.result.length.should.equal(rows.length)
+        })
+      })
+    })
+
     it('/budget : should return list category for the budget', function () {
       return chai.request(app).get(`/api/budget`).then(function (res) {
         res.should.have.status(200)
