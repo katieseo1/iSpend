@@ -6,7 +6,7 @@ iSpend is a user friendly personal financial application to track of daily spend
 ![Screenshots](https://github.com/katieseo1/iSpend/blob/master/screenShot/iSpendDemo.gif)
 
 ## Summary
-Always running out of money before payday? Let's take control of your personal finances with iSpend. This responsive app can help you keep track of your spending and set the budget. You can easily see what your actual spending is and compare it with your budget.  
+Always running out of money before payday? Let's take control of your personal finances with iSpend. This responsive app can help you keep track of your spending and set the budget. You can easily see what your actual spending is and compare it with your budget. By tracking your spending behavior, you can find ways to save money.
 
 ## Live Site
 You can access iSpend at http://ispend.org/
@@ -15,11 +15,11 @@ You can access iSpend at http://ispend.org/
 * The front-end is built using HTML5, CSS3 and the back-end uses Node.js with Express as
 the web server and MySQL as the database.
 * Extensive input data validation is demonstrated throughout the app.
-* Libraries such as D3 chart, Bootstrap, datatTables and Passport.js are used for
+* Libraries such as D3 chart, Bootstrap, dataTables and Passport.js are used for
 data visualization, advanced css element, sortable column and user authentication.
-* The app is fully responsive for both mobile and desktop.
-* The app is fully unit tested on the front and backend with Mocha.
-* The app is deployed on the AWS EC2 Cloud.
+* The web application is fully responsive for both mobile and desktop.
+* Using Mocha and Chai javaScript test framework,the app is fully unit tested on the front and backend.
+* The app is deployed on the Amazon EC2 instances.
 
 ## Setting up a project
 * Create tables in the database : follow database schemas `example/database.js`
@@ -31,7 +31,7 @@ data visualization, advanced css element, sortable column and user authenticatio
 
 ## Running the project
 * Move into the project directory
-* Starts a server running at http://localhost:80
+* Starts a server running at http://localhost:3000
 
 ## Test the project
 * Seed data : `mysql -u username –-password=your_password database_name <  test/seedData.sql`
