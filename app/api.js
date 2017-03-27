@@ -60,7 +60,8 @@ module.exports = function (app) {
     var qry = `SELECT Year(purchase_date) as year, month(purchase_date) as month
     FROM spending
     WHERE user_id=${userId}
-    GROUP by Year(purchase_date), month(purchase_date)`
+    GROUP by Year(purchase_date), month(purchase_date) order by purchase_date DESC`
+
     executeQry(qry, res)
   })
   // Get spending for a specific category

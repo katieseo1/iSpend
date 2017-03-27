@@ -95,6 +95,10 @@ $(function () {
     $('.date-picker').datepicker('show')
   })
 
+  $('.date-picker').datepicker().on('changeDate', function(ev){
+     $('.datepicker').hide();
+  });
+
   handleAddTransaction()
   validation.transactionForm()
 })
