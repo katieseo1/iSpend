@@ -115,6 +115,9 @@ body {
 		width: 200px;
 		height: 55px
 	}
+	.login-label{
+		margin-left: 20px;
+	}
 	.landing .title {
 		font-size: 2.5em;
 	}
@@ -145,6 +148,9 @@ body {
 	.logo img {
 		width: 200px;
 		height: 55px
+	}
+	.login-label{
+		margin-left: 0px;
 	}
 	.login-header {
 		margin: 190px 0 100px;
@@ -233,7 +239,7 @@ a:hover {
     background-color: #ffffed;
 }
 .login-label{
-	margin-top:10px;
+	margin-top:20px;
 }
 .password-input{
 	margin-bottom:20px;

@@ -1,6 +1,6 @@
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
-const apiURL = 'http://localhost:3000/api/'
+const apiURL = 'http://ispend.org/api/'
 module.exports = function (app, passport) {
   // Display error message
   function errMsg (res) {

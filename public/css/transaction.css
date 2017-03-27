@@ -7019,6 +7019,6 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:las
 }
 @media (min-width: 1200px) {
   .transaction-container{
-    margin-top: 120px;
+    margin-top: 150px;
   }
 }
