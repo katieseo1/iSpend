@@ -8063,6 +8063,31 @@ __webpack_require__(73)
 var bootbox = __webpack_require__(73)
 var validation = __webpack_require__(80)
 
+
+function displayMessage () {
+  bootbox.confirm({
+    message: "Successfully added",
+    buttons: {
+        confirm: {
+            label: 'Return to your Spending',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Reset Budget',
+            className: 'btn-primary'
+        }
+    },
+    callback: function (result) {
+      if (result ===true){
+        window.location.href = '/categorySpending';
+      }
+      else{
+        document.getElementById('setBudget').reset()
+      }
+    }
+  });
+}
+
 function setBudgetRequest (data) {
   $.ajax({
     method: 'PUT',
@@ -8070,13 +8095,7 @@ function setBudgetRequest (data) {
     data: JSON.stringify(data),
     async: true,
     success: function (data) {
-      bootbox.alert({
-        size: 'small',
-        message: 'Done budgeting',
-        callback: function () {
-          window.location.reload()
-        }
-      })
+      displayMessage()
     },
     dataType: 'json',
     contentType: 'application/json'
@@ -9878,7 +9897,7 @@ var signUpForm = function () {
     }
   })
 }
-var setBudgetForm = function() {
+var setBudgetForm = function () {
   $('#setBudget').bootstrapValidator({
     container: '#messagesBudget',
     fields: {
@@ -9890,11 +9909,11 @@ var setBudgetForm = function() {
         }
       }
     }
-  }).on('success.field.fv', function(e, data) {
+  }).on('success.field.fv', function (e, data) {
     if (data.fv.getInvalidFields().length > 0) {
-      data.fv.disableSubmitButtons(true);
+      data.fv.disableSubmitButtons(true)
     }
-  });
+  })
 }
 exports.transactionForm = transactionForm
 exports.signUpForm = signUpForm

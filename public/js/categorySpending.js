@@ -52834,7 +52834,7 @@ var dependencies = {"d3-array":"1.1.1","d3-axis":"1.0.6","d3-brush":"1.0.4","d3-
 
 /* WEBPACK VAR INJECTION */(function($, global, d3) {global.jQuery = $ = __webpack_require__(13)
 global.d3 = d3 = __webpack_require__(154)
-__webpack_require__(37);
+__webpack_require__(37)
 __webpack_require__(36)
 __webpack_require__(82)
 __webpack_require__(155)
@@ -52887,13 +52887,13 @@ function getCategorySpending (date, categorySpendingTable, dounutChart) {
   })
 }
 
-function dateConversion(date){
+function dateConversion (date) {
   var dateAry = date.split('-')
   var dd = dateAry[2].split('')
   return `${dateAry[0]}/${dateAry[1]}/${dd[0]}${dd[1]}`
 }
 
-function getSepecificSpending (inputData,specificSpendingTable) {
+function getSepecificSpending (inputData, specificSpendingTable) {
   $.ajax({
     url: 'sepecificSpending/',
     method: 'GET',
@@ -52903,29 +52903,27 @@ function getSepecificSpending (inputData,specificSpendingTable) {
       inputData
     },
     success: function (data) {
-      $("#spendingDetail").text(inputData.category+' ' +'spending');
-
+      $('#spendingDetail').text(inputData.category + ' ' + 'spending')
       specificSpendingTable.clear().draw()
       for (var i = 0; i < data.result.length; i++) {
         specificSpendingTable.row.add([dateConversion(data.result[i].purchase_date), '$' + data.result[i].amount.toFixed(
-          2),   data.result[i].description]
+          2), data.result[i].description]
         ).draw()
       }
-      $("#spending").modal();
-
+      $('#spending').modal()
     }
   })
 }
 function handleDetailView (dataTable) {
   $('.category-data').on('click', '.view-detail', function (e) {
-    var name =  $(e.currentTarget).data('category')
-    var purchaseDate =  $(e.currentTarget).data('date')
+    var name = $(e.currentTarget).data('category')
+    var purchaseDate = $(e.currentTarget).data('date')
     var yearMonth = purchaseDate.split('-')
     getSepecificSpending({
-        'category' : name,
-        'year' : yearMonth[0],
-        'month': yearMonth[1]
-      },dataTable)
+      'category': name,
+      'year': yearMonth[0],
+      'month': yearMonth[1]
+    }, dataTable)
   })
 }
 
@@ -52952,7 +52950,7 @@ function formatDate (date) {
     month: 'long'
   })
   return {
-    month:   monthName.split(" ")[0],
+    month: monthName.split(' ')[0],
     mm: date.getMonth() + 1,
     yy: date.getFullYear()
   }
@@ -52977,11 +52975,11 @@ $(function () {
     document.getElementById('myDropdown').classList.toggle('show')
   })
   $('.dropdown-menu li a').click(function (e) {
-    var monthName = $(this).text().split(" ")[0]
-    var year = $(this).attr("data-year")
-    var month = $(this).attr("data-month")
-    getCategorySpending({month:monthName, mm:month, yy:year}, categorySpendingTable, pie)
-    getSpendingVsBudget({month:monthName, mm:month, yy:year})
+    var monthName = $(this).text().split(' ')[0]
+    var year = $(this).attr('data-year')
+    var month = $(this).attr('data-month')
+    getCategorySpending({month: monthName, mm: month, yy: year}, categorySpendingTable, pie)
+    getSpendingVsBudget({month: monthName, mm: month, yy: year})
   })
 })
 

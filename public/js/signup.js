@@ -8054,7 +8054,7 @@ return buildFragment;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($, global) {global.jQuery = $ = __webpack_require__(13)
-__webpack_require__(37);
+__webpack_require__(37)
 __webpack_require__(36)
 __webpack_require__(70)
 __webpack_require__(81)
@@ -8843,7 +8843,7 @@ var signUpForm = function () {
     }
   })
 }
-var setBudgetForm = function() {
+var setBudgetForm = function () {
   $('#setBudget').bootstrapValidator({
     container: '#messagesBudget',
     fields: {
@@ -8855,11 +8855,11 @@ var setBudgetForm = function() {
         }
       }
     }
-  }).on('success.field.fv', function(e, data) {
+  }).on('success.field.fv', function (e, data) {
     if (data.fv.getInvalidFields().length > 0) {
-      data.fv.disableSubmitButtons(true);
+      data.fv.disableSubmitButtons(true)
     }
-  });
+  })
 }
 exports.transactionForm = transactionForm
 exports.signUpForm = signUpForm

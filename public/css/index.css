@@ -6930,6 +6930,7 @@ body {
 	color: white;
 }
 
+
 /* login btn loading effect */
 .login-btn:focus, .login-btn:active {
 	color: #4B79A1;
@@ -6987,6 +6988,12 @@ footer{
 }
 a:hover {
     background-color: #ffffed;
+}
+.signup-label{
+	margin-top:10px;
+}
+.password-input{
+	margin-bottom:20px;
 }
 .feature-container{
 	background-color: rgba(255, 255, 255, 0.03);

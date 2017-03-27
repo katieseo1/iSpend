@@ -10181,7 +10181,7 @@ return buildFragment;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($, global) {global.jQuery = $ = __webpack_require__(13)
-__webpack_require__(37);
+__webpack_require__(37)
 __webpack_require__(36)
 __webpack_require__(155)
 __webpack_require__(156)
@@ -10195,42 +10195,28 @@ var bootbox = __webpack_require__(73)
 var validation = __webpack_require__(80)
 
 function displayMessage () {
-
   bootbox.confirm({
-    message: "Successfully added",
+    message: 'Successfully added',
     buttons: {
-        confirm: {
-            label: 'Back to Spending page',
-            className: 'btn-success'
-        },
-        cancel: {
-            label: 'Add more transactions',
-            className: 'btn-primary'
-        }
+      confirm: {
+        label: 'Back to Spending page',
+        className: 'btn-success'
+      },
+      cancel: {
+        label: 'Add more transactions',
+        className: 'btn-primary'
+      }
     },
     callback: function (result) {
-      if (result ===true)
-      {
-        window.location.href = '/categorySpending';
-
-      }
-      else{
+      if (result === true) {
+        window.location.href = '/categorySpending'
+      } else {
         document.getElementById('addTransactionForm').reset()
       }
     }
-});
-
-}
-/*  bootbox.alert({
-    size: 'small',
-    message: 'Added transaction ',
-    callback: function () {
-    document.getElementById('addTransactionForm').reset();
-    $('#btn-return').show();
-    }
   })
 }
-*/
+
 function addTransaction (transaction) {
   $.ajax({
     method: 'POST',
@@ -10287,9 +10273,9 @@ $(function () {
     $('#menu1').text($(this).text())
   })
   $('.open-datetimepicker').click(function (event) {
-   event.preventDefault()
-   $('.date-picker').datepicker('show')
- })
+    event.preventDefault()
+    $('.date-picker').datepicker('show')
+  })
 
   handleAddTransaction()
   validation.transactionForm()
@@ -12044,7 +12030,7 @@ var signUpForm = function () {
     }
   })
 }
-var setBudgetForm = function() {
+var setBudgetForm = function () {
   $('#setBudget').bootstrapValidator({
     container: '#messagesBudget',
     fields: {
@@ -12056,11 +12042,11 @@ var setBudgetForm = function() {
         }
       }
     }
-  }).on('success.field.fv', function(e, data) {
+  }).on('success.field.fv', function (e, data) {
     if (data.fv.getInvalidFields().length > 0) {
-      data.fv.disableSubmitButtons(true);
+      data.fv.disableSubmitButtons(true)
     }
-  });
+  })
 }
 exports.transactionForm = transactionForm
 exports.signUpForm = signUpForm
