@@ -18,7 +18,7 @@ the web server and MySQL as the database.
 * Libraries such as D3 chart, Bootstrap, dataTables and Passport.js are used for
 data visualization, advanced css element, sortable column and user authentication.
 * The web application is fully responsive for both mobile and desktop.
-* Using Mocha and Chai javaScript test framework,the app is fully unit tested on the front and backend.
+* Using Mocha and Chai javaScript test framework, the app is fully unit tested on the front and backend.
 * The app is deployed on the Amazon EC2 instances.
 
 ## Setting up a project
